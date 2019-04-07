@@ -22,13 +22,9 @@ body {
 
   --textLink: var(--black);
   --hr: var(--gray-medium);
-  --mega-border-width: 5px;
-  border: var(--mega-border-width) solid var(--gray);
-  /* min-height: calc(100vh - var(--mega-border-width)); */
   min-height: 100vh;
 }
 
-/* header */
 header {
   display: flex;
   justify-content: space-between;
@@ -46,7 +42,6 @@ header {
   animation: rainbow 2s infinite linear;
 }
 
-/* cat */
 .logo > svg {
   height: 3rem;
   width: 3rem;
@@ -62,21 +57,25 @@ header {
   }
 }
 
-/* main bio thing */
 .main-bio-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 65vh;
+  min-height: 65vh;
 }
 
 .main-bio {
   flex: 0 0 80%;
   margin-right: 1.5rem;
 }
-.main-bio h1 {
-  margin-top: 0;
+
+.avatar {
+  min-width: 250px;
+  border-radius: 100%;
+  border: 8px solid var(--pink);
+  margin-right: 25px; 
 }
+
 .main-bio-container svg:hover {
   background-image: -webkit-linear-gradient(92deg, var(--coral), var(--pink));
   background-clip: text;
@@ -84,6 +83,22 @@ header {
   animation: rainbow 2s infinite linear;
   color: var(--pink);
 }
+
+.title {
+  font-size: 6rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  margin-left: -0.45rem;
+}
+
+.subtitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  margin-top: 0;
+}
+
 @media (max-width: 1024px) {
   .main-bio-container {
     flex-wrap: wrap;
@@ -95,10 +110,20 @@ header {
   }
   .main-bio h1 {
     margin-top: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: 4.55rem;
+  }
+  .subtitle {
+    font-size: 1.45rem;
+  }
+  .avatar {
+    margin-right: 0;
   }
 }
 
-/* horizontal lists of links */
 .horizontal-links {
   list-style-type: none;
   margin-bottom: 0;
@@ -126,19 +151,16 @@ header {
   }
 }
 
-/* footer */
 @media (max-width: 375px) {
   footer {
     display: block;
   }
 }
 
-/* gatsby-highlight */
 .gatsby-highlight {
   margin-bottom: 1.75em;
 }
 
-/* a tags */
 small > a {
   color: var(--gray);
 }
@@ -167,7 +189,6 @@ a.squiggly:hover {
   box-decoration-break: initial;
 }
 
-/* pills */
 .pills {
   display: flex;
 }
@@ -203,12 +224,10 @@ a.squiggly:hover {
   background-color: #FF857F;
 }
 
-/* embedded tweets */
 .twitter-tweet {
   margin: 0 auto;
 }
 
-/* animations */
 @keyframes rainbow {
   from {
     filter: hue-rotate(0deg);

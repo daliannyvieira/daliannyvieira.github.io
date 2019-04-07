@@ -2,7 +2,7 @@
 title:  "Coisas que eu aprendi em um ano trabalhando remoto"
 description: >-
   Esse mês eu estou completando um ano de experiência trabalhando remoto...
-date: 2018-09-26T03:45:03.995Z
+date: 2017-11-05T03:45:03.995Z
 categories:
   - Trabalho remoto
   - Cultura

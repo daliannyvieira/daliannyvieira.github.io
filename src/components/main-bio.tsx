@@ -59,48 +59,20 @@ const MainBio: React.FunctionComponent<{}> = () => {
                 className="avatar"
                 fixed={data.avatar.childImageSharp.fixed}
                 alt={author}
-                style={{
-                  marginRight: 50,
-                  marginBottom: 0,
-                  minWidth: 250,
-                  borderRadius: `100%`,
-                  border: `8px solid var(--pink)`,
-                }}
                 imgStyle={{
                   borderRadius: `50%`,
                 }}
               />
-        
             <div className="main-bio">
-              <h1 className="rainbow">
-                <p
-                  style={{
-                    fontSize: `6.25rem`,
-                    fontWeight: 700,
-                    marginTop: `2rem`,
-                    marginLeft: `-0.5rem`,
-                    marginBottom: `2rem`,
-                  }}
-                >
+              <div className="rainbow">
+                <h1 className="title">
                   Hello,
-                </p>
-                <p
-                  style={{
-                    fontSize: `1.875rem`,
-                    fontWeight: 600,
-                    marginBottom: 0,
-                    marginTop: 0,
-                  }}
-                >
+                </h1>
+                <p className="subtitle">
                   You can call me Dali.
                 </p>
-              </h1>
-              <p
-                style={{
-                  marginBottom: 0,
-                  marginTop: 0,
-                }}
-              >
+              </div>
+              <p>
                 Someone who loves code, art, humanity, and believes that <strong>we need a more diverse software industry</strong> and that the development of new technologies as well as their access needs to be democratized. Today I teach code to inspire and encourage young people in territories of conflict and social vulnerability to change their lives and communities.
               </p>
             </div>            
