@@ -2,7 +2,6 @@
 title: "A única pessoa na sala"
 description: >-
   Pense em uma grande sala, agora imagine que você faz parte de um grupo subjugado pela sociedade de alguma forma...
-date: "2018-06-21 23:00:43 -0300"
 date:  2018-06-21T03:45:03.995Z
 categories:
   - diversidade
