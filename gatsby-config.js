@@ -10,6 +10,7 @@ module.exports = {
       linkedin: `daliannyvieira`
     },
   },
+  pathPrefix: "/blog",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
