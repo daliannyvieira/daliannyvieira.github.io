@@ -11,7 +11,7 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-function isActive (path) {
+function isActive(path, location) {
   return location.pathname === path;
 }
 
@@ -20,8 +20,6 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   title,
   children,
 }) => {
-
-  console.log(isActive('/'))
 
   return (
     <div className="main-container">
@@ -53,12 +51,12 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         </div>
         <ul className="horizontal-links">
           <li>
-            <Link style={isActive('/') ? { textDecoration: 'underline' } : null} to={'/'}>
+            <Link style={isActive('/', location) ? { textDecoration: 'underline' } : null} to={'/'}>
               Home
             </Link>
           </li>
           <li>
-            <Link style={isActive('/posts') ? { textDecoration: 'underline' } : null} to={'/posts'} to={'/posts'}>
+            <Link style={isActive('/posts', location) ? { textDecoration: 'underline' } : null} to={'/posts'} to={'/posts'}>
               Posts
             </Link>
           </li>
