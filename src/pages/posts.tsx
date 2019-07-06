@@ -48,9 +48,6 @@ const BlogIndex: React.FunctionComponent<BlogIndexProps> = ({
         return (
           <div
             className="blog-post-preview"
-            style={{
-              marginBottom: rhythm(1),
-            }}
             key={node.fields.slug}
           >
             <h2

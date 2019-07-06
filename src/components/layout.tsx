@@ -11,65 +11,21 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+function isActive (path) {
+  return location.pathname === path;
+}
+
 const Layout: React.FunctionComponent<LayoutProps> = ({
   location,
   title,
   children,
 }) => {
-  const rootPath = `${__PATH_PREFIX__}/`; // eslint-disable-line no-undef
-  let header;
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h2
-        style={{
-          ...scale(0.3),
-          display: 'inline',
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h2>
-    );
-  } else {
-    header = (
-      <h2
-        style={{
-          ...scale(0.3),
-          fontStyle: 'italic',
-          display: 'inline',
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h2>
-    );
-  }
+  console.log(isActive('/'))
+
   return (
-    <>
-      <header
-        style={{
-          padding: rhythm(1),
-          marginTop: 0,
-          marginBottom: 0,
-        }}
-      >
+    <div className="main-container">
+      <header>
         <div className="logo rainbow">
           <Logo
             style={{
@@ -77,43 +33,50 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
               marginRight: rhythm(1 / 4),
             }}
           />
-          {header}
+          <h2
+            style={{
+              ...scale(0.3),
+              display: 'inline',
+            }}
+          >
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/`}
+            >
+              {title}
+            </Link>
+          </h2>
         </div>
         <ul className="horizontal-links">
           <li>
-            <Link className="squiggly" to={'/'}>
-              Início
+            <Link style={isActive('/') ? { textDecoration: 'underline' } : null} to={'/'}>
+              Home
             </Link>
           </li>
           <li>
-            <Link className="squiggly" to={'/posts'}>
-              Artigos
+            <Link style={isActive('/posts') ? { textDecoration: 'underline' } : null} to={'/posts'} to={'/posts'}>
+              Posts
             </Link>
           </li>
         </ul>
       </header>
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()} Dali
-          <div>
-            {SOCIAL.map((s, idx) => (
-              <React.Fragment key={s.kind}>
-                <a href={s.url}>{s.kind}</a>
-                {idx === SOCIAL.length - 1 ? '' : <span> / </span>}
-              </React.Fragment>
-            ))}
-          </div>
-        </footer>
-      </div>
-    </>
+      <main>{children}</main>
+      <footer>
+        © {new Date().getFullYear()} Dali
+        <div>
+          {SOCIAL.map((s, idx) => (
+            <React.Fragment key={s.kind}>
+              <a href={s.url}>{s.kind}</a>
+              {idx === SOCIAL.length - 1 ? '' : <span> / </span>}
+            </React.Fragment>
+          ))}
+        </div>
+      </footer>
+    </div>
   );
 };
 
