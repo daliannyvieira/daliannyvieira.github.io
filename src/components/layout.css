@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -185,7 +187,19 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
+  font: 112.5%/1.75 sans-serif;
+  /* font-size: 1.20112rem; */
+  /* line-height: 1.75rem; */
+  /* font: 112.5%/1.75 'neue-haas-unica',-apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif; */
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  /* font-size: 112.5%; */
+  /* line-height: 1.75; */
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -200,7 +214,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -619,4 +633,154 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #2b2b2c;
+  background-color: #f5f5f5;
+}
+
+.container {
+  margin: 1rem;
+  padding: 1rem;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  margin: 1rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 1440px;
+    width: 80vw;
+  }
+  .sidebar {
+    max-width: 460px;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    min-height: 100vh;
+  }
+  .main-content {
+    position: absolute;
+    top: 0;
+    left: calc(460px + 1rem);
+    padding: 1rem 2rem;
+  } 
+}
+.blog-post-preview,
+.blog-post {
+  padding: 2rem 4rem 4rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  box-shadow: rgba(46, 41, 51, 0.08) 0px 1px 2px, rgba(71, 63, 79, 0.08) 0px 2px 4px;
+  transform: translateZ(0px);
+  text-align: left;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 2px;
+}
+
+.blog-post-preview {
+  opacity: 0.85;
+}
+
+.blog-post-preview:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.blog-post-preview p,
+.blog-post-preview img {
+  margin: 1rem 0;
+}
+
+.blog-post-preview img:hover,
+.blog-post img:hover {
+  background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbow 3s linear infinite;
+  animation: rainbow 3s linear infinite;
+  color: #ffb8d1;
+}
+
+.blog-post h1,
+.blog-post-preview h2 {
+  background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbow 3s linear infinite;
+  animation: rainbow 3s linear infinite;
+  color: #ffb8d1;
+}
+
+.horizontal-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.horizontal-links li {
+  list-style: none;
+  display: flex;
+  margin-right: 1rem;
+  color: #ffb8d1;
+}
+
+.horizontal-links li svg {
+  background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbow 3s linear infinite;
+  animation: rainbow 3s linear infinite;
+  color: #ffb8d1;
+}
+
+@keyframes rainbow {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+      -webkit-filter: hue-rotate(-1turn);
+      filter: hue-rotate(-1turn);
+  }
+}
+
+blockquote {
+  margin-left: -1.75rem;
+  margin-right: 1.75rem;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 1.42188rem;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.75rem;
+  font-size: 1.20112rem;
+  line-height: 1.75rem;
+  color: inherit;
+  font-style: italic;
+  border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
+  border-left-color: inherit;
+  opacity: 0.8;
+}
+
+a {
+  color: #2b2b2c;
 }
