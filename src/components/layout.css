@@ -642,39 +642,107 @@ body {
   flex-direction: column;
   color: #2b2b2c;
   background-color: #f5f5f5;
+  min-height: 100vh;
 }
 
 .container {
-  margin: 1rem;
-  padding: 1rem;
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  /* margin: 1rem; */
+  /* padding: 1rem; */
+  /* min-height: 100vh; */
+  /* position: relative; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* background-color: gainsboro; */
 }
 
 .sidebar {
-  margin: 1rem;
+  /* margin: 1rem; */
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  padding: 2.8rem 2.2rem;
+  /* background-color: rgb(78, 70, 59); */
+  width: 100%;
+}
+
+nav .container {
+  align-items: center;
+  justify-content: space-between;
+  justify-content: flex-start;
+  width: 75vw;
+  padding: 0 1.55rem;
+  /* width: 100vw; */
+  /* background-color: pink;   */
+}
+
+a {
+  text-decoration: none;
+}
+
+nav span a {
+  margin-right: 2rem;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+nav ul {
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0;
+}
+
+nav ul li {
+  padding: 0.65rem;
+}
+
+nav ul li:hover {
+  font-weight: bolder;
+}
+
+.main-content {
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: calc(460px + 1rem); */
+  padding: 8rem 1rem;
 }
 
 @media only screen and (min-width: 992px) {
   .container {
-    max-width: 1440px;
-    width: 80vw;
+    max-width: 75vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .sidebar {
-    max-width: 460px;
-    padding: 1rem 2rem;
-    position: fixed;
-    top: 0;
-    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .main-content {
-    position: absolute;
-    top: 0;
-    left: calc(460px + 1rem);
-    padding: 1rem 2rem;
-  } 
+  .avatar {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .sidebar-content {
+    margin: 1rem;
+    padding: 1rem;
+    width: 50%;
+  }
+  .sidebar-content footer{
+    margin-top: 2.55rem;
+  }
 }
 .blog-post-preview,
 .blog-post {
@@ -697,7 +765,7 @@ body {
 
 .blog-post-preview:hover {
   transition: all .2s ease-in-out;
-  transform: scale(1.05);
+  transform: scale(1.015);
   opacity: 1;
 }
 

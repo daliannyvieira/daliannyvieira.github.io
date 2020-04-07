@@ -2,10 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import MainBio from "../components/main-bio";
+import Posts from "../components/posts";
 
 const IndexPage = ({ data }) => {
-  const { author } = data.site.siteMetadata
+  const posts = data.allMarkdownRemark.edges;
 
   return (
     <Layout>
@@ -28,18 +28,13 @@ const IndexPage = ({ data }) => {
           `leadership`,
         ]}
       />
-      <MainBio author={author} />
+      <Posts posts={posts}/>
     </Layout>
   )
 }
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        author
-      }
-    }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }

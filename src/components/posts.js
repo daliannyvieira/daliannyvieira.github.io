@@ -52,7 +52,7 @@ const Posts = ({ posts }) => {
             </small>
             <Image
               style={{
-                height: `20vh`
+                height: `25vh`
               }}
               fluid={fluid}
               alt={imageAuthor}
