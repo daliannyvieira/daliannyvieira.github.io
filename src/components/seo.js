@@ -64,7 +64,7 @@ function SEO({ description, lang, meta, title, keywords }) {
         },
       ]
       .concat(
-        keywords.length > 0
+        keywords && keywords.length > 0
           ? {
             name: `keywords`,
             content: keywords.join(`, `),
