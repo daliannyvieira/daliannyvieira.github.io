@@ -667,19 +667,14 @@ nav {
   align-items: center;
   justify-content: center;
   position: absolute;
-  padding: 2.8rem 2.2rem;
-  /* background-color: rgb(78, 70, 59); */
   width: 100%;
 }
 
 nav .container {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
   justify-content: flex-start;
-  width: 75vw;
-  padding: 0 1.55rem;
-  /* width: 100vw; */
-  /* background-color: pink;   */
+  padding: 2.45rem 1rem;
 }
 
 a {
@@ -711,13 +706,44 @@ nav ul li:hover {
 }
 
 .main-content {
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: calc(460px + 1rem); */
   padding: 8rem 1rem;
 }
 
+img {
+  max-width: 100%;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.blog-post-preview,
+.blog-post {
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  box-shadow: rgba(46, 41, 51, 0.08) 0px 1px 2px, rgba(71, 63, 79, 0.08) 0px 2px 4px;
+  transform: translateZ(0px);
+  text-align: left;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 2px;
+}
+
 @media only screen and (min-width: 992px) {
+  nav {
+    padding: 2.8rem 2.2rem;
+  }
+  nav .container {
+    width: 100vw;
+    justify-content: flex-start;
+    padding: 0 1.55rem;
+  }
   .container {
     max-width: 75vw;
     display: flex;
@@ -743,20 +769,10 @@ nav ul li:hover {
   .sidebar-content footer{
     margin-top: 2.55rem;
   }
-}
-.blog-post-preview,
-.blog-post {
-  padding: 2rem 4rem 4rem;
-  margin-bottom: 1rem;
-  background-color: #ffffff;
-  box-shadow: rgba(46, 41, 51, 0.08) 0px 1px 2px, rgba(71, 63, 79, 0.08) 0px 2px 4px;
-  transform: translateZ(0px);
-  text-align: left;
-  border-width: 0px;
-  border-style: initial;
-  border-color: initial;
-  border-image: initial;
-  border-radius: 2px;
+  .blog-post-preview,
+  .blog-post {
+    padding: 2rem 4rem 4rem;
+  }
 }
 
 .blog-post-preview {
