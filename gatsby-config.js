@@ -40,7 +40,7 @@ module.exports = {
         icon: `src/images/cat.svg`,
       },
     },
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {

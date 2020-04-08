@@ -695,8 +695,7 @@ nav ul li {
 }
 
 .sidebar {
-  margin-top: 4rem;
-  padding: 2rem;
+  margin-top: 6rem;
 }
 
 .blog-post-preview,
@@ -712,6 +711,11 @@ nav ul li {
   border-color: initial;
   border-image: initial;
   border-radius: 2px;
+}
+
+.container {
+  max-width: 100vw;
+  padding: 1rem;
 }
 
 @media only screen and (min-width: 992px) {
@@ -856,7 +860,7 @@ blockquote {
 
 .posts-list,
 .blog-post {
-  margin: 6rem 1rem;
+  margin: 6rem 0;
 }
 
 .about-gallery {

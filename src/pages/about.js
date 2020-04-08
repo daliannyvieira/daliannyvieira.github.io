@@ -36,7 +36,7 @@ const AboutPage = ({ data }) => {
       <div className="about-container">
         <h1>Tech as a gift</h1>
         <div className="about-gallery">
-          <img className="image-about" src={image01}/>
+          <img className="image-about" src={image01} alt="That's me, and I'm smiling"/>
         </div>
         <p>
           Hello, my name is Dali, I'm a brazilian developer. I have been working in the technology industry since 2016, and during that time I had the experience of developing things in Javascript, mostly web and mobile applications.
@@ -54,16 +54,16 @@ const AboutPage = ({ data }) => {
           I also had the opportunity to make many significant exchanges of knowledge in some other code communities created to support underrepresented groups in technology, such as PyLadies, Django Girls and ReactLadies.
         </p>
         <div className="about-gallery">
-          <img className="image-about" src={image03}/>
-          <img className="image-about" src={image09}/>
+          <img className="image-about" src={image03} alt="People happy at VaiNaWeb with course certificates"/>
+          <img className="image-about" src={image09} alt="People happy at VaiNaWeb in a workshop about JS"/>
         </div>
         <div className="about-gallery">
-          <img className="image-about" src={image08}/>
-          <img className="image-about" src={image07}/>
+          <img className="image-about" src={image08} alt="People happy at ReactLadies"/>
+          <img className="image-about" src={image07} alt="People happy at DjangoGirls Niteroi"/>
         </div>
         <div className="about-gallery">
-          <img className="image-about" src={image06}/>
-          <img className="image-about" src={image05}/>
+          <img className="image-about" src={image06} alt="People happy at Pyladies Rio"/>
+          <img className="image-about" src={image05} alt="People happy at Pyladies Rio"/>
         </div>
       </div>
     </Layout>
