@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Posts from "../components/posts";
 
-const IndexPage = ({ data }) => {
+const PostsPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
@@ -66,4 +66,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage;
+export default PostsPage;

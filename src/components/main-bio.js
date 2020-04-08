@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from "../components/image"
+import Avatar from "../components/avatar"
 import SOCIAL from '../constants/social';
 
 const Sidebar = ({author}) => (
@@ -11,7 +11,7 @@ const Sidebar = ({author}) => (
       return (
         <aside className="sidebar">
           <div className="avatar">
-            <Image />
+            <Avatar />
           </div>
           <div className="sidebar-content">
             <h1>
@@ -37,7 +37,7 @@ const Sidebar = ({author}) => (
               </ul>
               © {new Date().getFullYear()}, Built with
             {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a> by {author}.
+              <a href="https://www.gatsbyjs.org">Gatsby</a> by @{author}.
             </footer>
           </div>
         </aside>

@@ -1,19 +1,14 @@
 import React from "react"
-import PropTypes from "prop-types"
-import Header from "./header"
+import Nav from "./nav"
 import "./layout.css"
 
 const Layout = ({ children }) => {
   return (
     <div className='container'>
-      <Header/>
+      <Nav/>
       <main className='main-content'>{children}</main>
     </div>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
