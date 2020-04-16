@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Dali`,
+    title: `Dali Vieira`,
     author: `Dalianny Vieira`,
     description: `Dalianny Vieira's personal blog`,
     siteUrl: `https://daliannyvieira.github.io/blog/`,
@@ -31,11 +31,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Dali blog`,
+        short_name: `Dali`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#f5f5f5`,
+        theme_color: `#f5f5f5`,
         display: `minimal-ui`,
         icon: `src/images/cat.svg`,
       },

@@ -16,14 +16,19 @@ const Nav = () => (
           </Link>
         </li>
         <li>
-          <Link to="/posts">
-            posts
-          </Link>
-        </li>
-        <li>
           <Link to="/about">
             about
           </Link>
+        </li>
+        <li>
+          <Link to="/posts">
+            blog
+          </Link>
+        </li>
+        <li>
+          <a href={'https://www.colab55.com/@daliannyvieira'}>
+            store
+          </a>
         </li>
       </ul>
     </div>

@@ -26,7 +26,7 @@ const Posts = ({ posts }) => {
           `leadership`,
         ]}
       />
-
+      <h1>Blog posts</h1>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title;
         const imageAuthor = node.frontmatter.coverAuthor;
