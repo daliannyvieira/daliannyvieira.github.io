@@ -1,38 +1,67 @@
 import { Link } from "gatsby"
 import React from "react"
+import styled from 'styled-components';
+
+const NavContainer = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+`
+
+const List = styled.ul`
+  display: flex;
+  margin: 0;
+
+  @media (min-width: 992px) {
+    width: 55vw;
+  }
+`
+
+const Item = styled.li`
+  margin: 0;
+  padding: 0.55rem 0.75rem;
+  list-style: none;
+  transition: 0.25s ease;
+
+  &:hover {
+    color: #2b2b2c;
+    background: #ff0;
+  }
+`
 
 const Nav = () => (
-  <nav>
-    <div className="container">
-      <span>
+  <NavContainer>
+    <List>
+      <Item>
         <Link to="/">
-          Dalianny Vieira
+          home
         </Link>
-      </span>
-      <ul>
-        <li>
-          <Link to="/">
-            home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about">
-            about
-          </Link>
-        </li>
-        <li>
-          <Link to="/posts">
-            blog
-          </Link>
-        </li>
-        <li>
-          <a href={'https://www.colab55.com/@daliannyvieira'}>
-            store
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      </Item>
+      <Item>
+        <Link to="/about">
+          about
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/posts">
+          blog
+        </Link>
+      </Item>
+      <Item>
+        <a href={'https://www.colab55.com/@daliannyvieira'}>
+          store
+        </a>
+      </Item>
+    </List>
+  </NavContainer>
 )
 
 export default Nav

@@ -37,6 +37,10 @@ const Posts = ({ posts }) => {
             key={node.fields.slug}
             className="blog-post-preview"
           >
+            <small title={node.frontmatter.longDate}>
+              {node.frontmatter.shortDate} &middot;{' '}
+              {pluralizeReadingTime(node.timeToRead)}
+            </small>
             <h2
               style={{
                 marginBottom: 0,
@@ -46,13 +50,9 @@ const Posts = ({ posts }) => {
                 {title}
               </Link>
             </h2>
-            <small title={node.frontmatter.longDate}>
-              {node.frontmatter.shortDate} &middot;{' '}
-              {pluralizeReadingTime(node.timeToRead)}
-            </small>
             <Image
               style={{
-                height: `25vh`
+                height: `20vh`
               }}
               fluid={fluid}
               alt={imageAuthor}
