@@ -3,6 +3,16 @@ import SEO from "../components/seo"
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
+import styled from 'styled-components';
+import color01 from '../images/color01.png'
+
+const WaterColor = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0.5;
+`;
 
 const Posts = ({ posts }) => {
   return (
@@ -26,7 +36,6 @@ const Posts = ({ posts }) => {
           `leadership`,
         ]}
       />
-      <h1>Blog posts</h1>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title;
         const imageAuthor = node.frontmatter.coverAuthor;
@@ -37,6 +46,7 @@ const Posts = ({ posts }) => {
             key={node.fields.slug}
             className="blog-post-preview"
           >
+            <WaterColor src={color01} alt="" />
             <small title={node.frontmatter.longDate}>
               {node.frontmatter.shortDate} &middot;{' '}
               {pluralizeReadingTime(node.timeToRead)}

@@ -1,7 +1,7 @@
 ---
 title: "Aprendendo a silenciar o barba azul"
 description: >-
-  O conto do Barba Azul, produzido originalmente por Charles Perrault e adaptado pela Dra Clarissa Pinkola Estés em seu livro Mulheres que correm com os lobos…
+  O conto do Barba Azul, produzido originalmente por Charles Perrault e adaptado pela Dra Clarissa Pinkola…
 date:  2018-10-02T03:45:03.995Z
 categories:
   - vida

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SOCIAL from '../constants/social';
 import styled from 'styled-components';
 import me from '../images/me.jpg'
+import color01 from '../images/color01.png'
 
 const Sidebar = styled.aside`
   display: flex;
@@ -19,9 +20,9 @@ const Sidebar = styled.aside`
 `;
 
 const Avatar = styled.div`
-  @media (min-width: 992px) {
-    width: 360px;
-  }
+  // @media (min-width: 992px) {
+    max-width: 360px;
+  // }
 `;
 
 const Content = styled.div`
@@ -32,6 +33,12 @@ const Content = styled.div`
     padding-right: 2rem;
   }
 `;
+const WaterColor = styled.img`
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  z-index: -1;
+`;
 
 const MainBio = ({author}) => (
   <StaticQuery
@@ -39,6 +46,7 @@ const MainBio = ({author}) => (
     render={() => {
       return (
         <Sidebar>
+          <WaterColor src={color01} alt="A picture with me smiling" />
           <Avatar>
             <img src={me} alt="A picture with me smiling" />
           </Avatar>

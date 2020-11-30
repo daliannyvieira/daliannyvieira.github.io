@@ -6,6 +6,17 @@ import Layout from "../components/layout"
 import SEO from '../components/seo';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
 
+import styled from 'styled-components';
+import color01 from '../images/color01.png'
+
+const WaterColor = styled.img`
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+  opacity: 0.5;
+`;
+
 export default ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
   const { previous, next } = pageContext;
@@ -18,6 +29,7 @@ export default ({ data, pageContext }) => {
         description={post.frontmatter.description || post.excerpt}
         keywords={post.frontmatter.keywords}
       />
+      <WaterColor src={color01} alt="" />
       <div className="blog-post">
         <h1 style={{ margin: 0 }}>
           {post.frontmatter.published ? '' : 'DRAFT: '}

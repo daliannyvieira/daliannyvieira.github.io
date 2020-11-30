@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import styled from 'styled-components';
+
 import image01 from "../images/me.jpg"
 import image03 from "../images/03.jpg"
 import image09 from "../images/09.jpeg"
@@ -10,6 +12,42 @@ import image06 from "../images/06.jpg"
 import image07 from "../images/07.jpg"
 import image08 from "../images/08.jpg"
 import image10 from "../images/me02.jpg"
+import color01 from '../images/color01.png'
+import color03 from '../images/color03.png'
+import color04 from '../images/color04.png'
+
+const WaterColor = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0.5;
+`;
+
+const WaterColor2 = styled.img`
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  z-index: -1;
+  opacity: 0;
+  
+  @media (min-width: 992px) {
+    top: 20%;
+    opacity: 0.25;
+  }
+`;
+
+const WaterColor3 = styled.img`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+  
+  @media (min-width: 992px) {
+    bottom: 10%;
+  }
+`;
 
 const AboutPage = ({ data }) => {
   return (
@@ -33,7 +71,9 @@ const AboutPage = ({ data }) => {
           `leadership`,
         ]}
       />
-
+      <WaterColor src={color01} alt="" />
+      <WaterColor2 src={color03} alt="" />
+      <WaterColor3 src={color04} alt="" />
       <div className="about-container">
         <div className="about-first-section">
           <div>

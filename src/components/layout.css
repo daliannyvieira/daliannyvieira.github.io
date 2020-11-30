@@ -9,8 +9,6 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("../images/13.jpg") center center;
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +76,6 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 2em;
   margin: 0.67em 0;
 }
 mark {
@@ -251,7 +248,7 @@ h1 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
+  font-size: 2rem;
   line-height: 1.1;
 }
 h2 {
@@ -267,7 +264,7 @@ h2 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
+  font-size: 1.45rem;
   line-height: 1.1;
 }
 h3 {
@@ -664,11 +661,16 @@ pre tt:after {
     justify-content: center;
     position: relative;
   }
-  .blog-post-preview,
   .blog-post {
     max-width: 45vw;
     margin: 2rem;
     padding: 2rem;
+  }
+
+  .blog-post-preview {
+    max-width: 20vw;
+    margin: 1rem;
+    padding: 1rem;
   }
 }
 
@@ -755,13 +757,21 @@ blockquote {
   color: #2A2F36;
 }
 
-.posts-list,
+.posts-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 4rem 0 2rem;
+  width: 75vw;
+}
+
 .blog-post {
-  margin: 8rem 0 2rem;
+  margin: 4rem 0 2rem;
+  width: 75vw;
 }
 
 .about-container {
-  margin: 8rem 0;
+  margin: 4rem 0 2rem;
   display: flex;
   flex-direction: column;
 }

@@ -1,7 +1,7 @@
 ---
 title:  "Mudando de casa, desapego e descobertas"
 description: >-
-  Fazem exatamente dez meses e dezoito dias que eu saí da casa dos meus pais no interior de Pernambuco, deixando três gatos com a minha mãe...
+  Fazem exatamente dez meses e dezoito dias que eu saí da casa dos meus pais no interior de Pernambuco, deixando três gatos...
 date:  2018-02-18T03:45:03.995Z
 categories:
   - vida

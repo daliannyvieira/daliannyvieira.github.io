@@ -6,7 +6,7 @@ const NavContainer = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255);
   width: 100%;
   margin: 0;
   display: flex;
@@ -21,7 +21,8 @@ const List = styled.ul`
   margin: 0;
 
   @media (min-width: 992px) {
-    width: 55vw;
+    width: 65vw;
+    border-bottom: 2px solid rgb(245, 245, 245);
   }
 `
 
@@ -38,6 +39,7 @@ const Item = styled.li`
 `
 
 const Nav = () => (
+  <>
   <NavContainer>
     <List>
       <Item>
@@ -62,6 +64,7 @@ const Nav = () => (
       </Item>
     </List>
   </NavContainer>
+</>
 )
 
 export default Nav
