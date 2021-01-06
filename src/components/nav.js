@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState } from 'react';
+
 import styled from 'styled-components';
 
 const NavContainer = styled.nav`
@@ -19,52 +20,69 @@ const NavContainer = styled.nav`
 const List = styled.ul`
   display: flex;
   margin: 0;
+  box-shadow: 0 4px 2px -2px rgba(12,13,14,0.15);
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 
   @media (min-width: 992px) {
     width: 65vw;
-    border-bottom: 2px solid rgb(245, 245, 245);
+    justify-content: flex-start;
   }
 `
 
 const Item = styled.li`
-  margin: 0;
-  padding: 0.55rem 0.75rem;
+  margin: 0;  
+  padding: 0.75rem 1rem 0.45rem;
   list-style: none;
-  transition: 0.25s ease;
+  transition: 0.65s ease-out;
+  border-bottom: 5px solid transparent;
 
   &:hover {
-    color: #2b2b2c;
-    background: #ff0;
+    border-bottom-color: ${props => props.color};
   }
 `
 
-const Nav = () => (
-  <>
-  <NavContainer>
-    <List>
-      <Item>
-        <Link to="/">
-          home
-        </Link>
-      </Item>
-      <Item>
-        <Link to="/about">
-          about
-        </Link>
-      </Item>
-      <Item>
-        <Link to="/posts">
-          blog
-        </Link>
-      </Item>
-      <Item>
-        <a href={'https://www.colab55.com/@daliannyvieira'}>
-          store
-        </a>
-      </Item>
-    </List>
-  </NavContainer>
-</>
-)
+const Nav = () => {
+  const [color, setColor] = useState('transparent')
+
+  const chooseColor = () => {
+    const colors = ['#70d5fc', '#f16da5', '#f7966f', '#ffd670', '#e6f06e']
+    const number = Math.floor(Math.random() * colors.length)
+
+    return colors[number];
+  }
+
+  const handlecolor = () => setColor(chooseColor)
+
+  return (
+    <>
+      <NavContainer>
+        <List>
+          <Item color={color} onMouseMove={handlecolor}>
+            <Link to="/">
+              home
+            </Link>
+          </Item>
+          <Item color={color} onMouseMove={handlecolor}>
+            <Link to="/about">
+              about
+            </Link>
+          </Item>
+          <Item color={color} onMouseMove={handlecolor}>
+            <Link to="/posts">
+              blog
+            </Link>
+          </Item>
+          <Item color={color} onMouseMove={handlecolor}>
+            <a href={'https://www.colab55.com/@daliannyvieira'}>
+              store
+            </a>
+          </Item>
+        </List>
+      </NavContainer>
+    </>
+  )
+}
 
 export default Nav

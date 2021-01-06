@@ -4,13 +4,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from 'styled-components';
 
-import image01 from "../images/me.jpg"
 import image03 from "../images/03.jpg"
 import image09 from "../images/09.jpeg"
 import image05 from "../images/05.jpg"
 import image06 from "../images/06.jpg"
 import image07 from "../images/07.jpg"
-import image08 from "../images/08.jpg"
 import image10 from "../images/me02.jpg"
 import color01 from '../images/color01.png'
 import color03 from '../images/color03.png'

@@ -642,25 +642,14 @@ pre tt:after {
   border-width: 1px;
   background: #fff;
   padding: 1rem;
+  margin: 0.45rem 0;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
   border-color: #f5f5f5;
   border-style: solid;
   border-width: 1px;
 }
 
-.container {
-  max-width: 100vw;
-  padding: 1rem;
-}
-
 @media only screen and (min-width: 992px) {
-  .container {
-    max-width: 75vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
   .blog-post {
     max-width: 45vw;
     margin: 2rem;
@@ -669,8 +658,7 @@ pre tt:after {
 
   .blog-post-preview {
     max-width: 20vw;
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0.55rem;
   }
 }
 
@@ -761,13 +749,7 @@ blockquote {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 4rem 0 2rem;
-  width: 75vw;
-}
-
-.blog-post {
-  margin: 4rem 0 2rem;
-  width: 75vw;
+  margin: 2.45rem 0 2rem;
 }
 
 .about-container {
