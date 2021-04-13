@@ -2,11 +2,10 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SOCIAL from '../constants/social';
-import styled from 'styled-components';
 import me from '../images/me.jpg'
-import color01 from '../images/color01.png'
+import styled, { keyframes } from 'styled-components'
 
-const Sidebar = styled.aside`
+const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,51 +13,103 @@ const Sidebar = styled.aside`
 
   @media (min-width: 992px) {
     flex-direction: row-reverse;
-    height: 90vh;
     max-width: 55vw;
   }
 `;
 
 const Avatar = styled.div`
   max-width: 360px;
+  
+  img {
+    border-radius: 6px;
+    max-width: 100%;
+  }
 `;
 
-const Content = styled.div`
+const Sidebar = styled.aside`
   width: 100%;
   
   @media (min-width: 992px) {
     width: 55%;
     padding-right: 2rem;
   }
-`;
-const WaterColor = styled.img`
-  position: absolute;
-  bottom: 20%;
-  right: 0;
-  z-index: -1;
+
+  h1 {
+    margin: 2rem 0;
+  }
+
+  z-index: 1;
 `;
 
-const MainBio = ({author}) => (
+const rainbow = keyframes`
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(-1turn);
+  }
+`
+
+const Links = styled.ul`
+  list-style: none;
+  display: flex;
+  margin: 1rem 0 2rem;
+  padding: 0;
+
+  li {
+    list-style: none;
+    display: flex;
+    margin-right: 1rem;
+  }
+  
+  li {
+    background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    &:nth-child(1) svg {
+      color: #F583BA;
+    }
+    &:nth-child(2) svg {
+      color: #6DDAF2;
+    }
+    &:nth-child(3) svg {
+      color: #92E085;
+    }
+    &:nth-child(4) svg {
+      color: #F5BD69;
+    }
+    &:nth-child(5) svg {
+      color: #F2856D;
+    }
+
+    &:hover {
+      transform: scale(1.25);
+      animation: ${rainbow} 3s linear infinite;
+    }
+  }
+
+`;
+
+const MainBio = ({author}) => {
+  return (
   <StaticQuery
     query={SidebarQuery}
     render={() => {
       return (
-        <Sidebar>
-          <WaterColor src={color01} alt="A picture with me smiling" />
+        <Section>
           <Avatar>
             <img src={me} alt="A picture with me smiling" />
           </Avatar>
-          <Content>
+          <Sidebar>
             <h1>
-              Hello, I'm Dali.
+              Hi there! I’m Dali,
             </h1>
             <p>
-              Someone who loves code, art, humanity, and believes that <strong>we need a more diverse software industry</strong> and that the development of new technologies as well as their access needs to be democratized.
+              A senior backend developer at 1STi in Brazil.
+              I have a huge experience in UI development and I love using technologies to solve real problems of the society.
             </p>
             <footer>
-              <ul
-                className="horizontal-links"
-              >
+              <Links>
                 {SOCIAL.map(s => (
                   <li key={s.kind}>
                     <a href={s.url}>
@@ -69,17 +120,17 @@ const MainBio = ({author}) => (
                     </a>
                   </li>
                 ))}
-              </ul>
-              © {new Date().getFullYear()}, Built with
+              </Links>
+              <small>© {new Date().getFullYear()}, Built with
             {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a> by @{author}.
+              <a href="https://www.gatsbyjs.org">Gatsby</a> by @daliannyvieira.</small>
             </footer>
-          </Content>
-        </Sidebar>
+          </Sidebar>
+        </Section>
       );
     }}
   />
-);
+)};
 
 const SidebarQuery = graphql`
   query SidebarQuery {

@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Nav from "./nav"
-import "./layout.css"
 import { Spring, animated } from 'react-spring/renderprops'
 import styled from 'styled-components';
 
 const Container = styled(animated.div)`
-  margin: 2.75rem 0 0.25rem;
-  max-width: 100vw;
+  margin: 6rem 0;
   padding: 1rem;
 
   @media (min-width: 992px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     max-width: 75vw;
-    margin: 2.45rem 0 0;
   }
 `;
 
@@ -45,7 +38,6 @@ const Layout = ({ children }) => {
           <Container
             style={{
               opacity: opacity,
-
             }}
           >
             <main className='main-content'>{children}</main>

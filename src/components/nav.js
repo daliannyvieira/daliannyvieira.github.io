@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React, { useState } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
@@ -37,44 +37,59 @@ const Item = styled.li`
   list-style: none;
   transition: 0.65s ease-out;
   border-bottom: 5px solid transparent;
+  color: rgb(43, 43, 44);
+  cursor: pointer;
+  margin: 0px;
+  padding: 0.75rem 1rem 0.45rem;
+  list-style: none;
+  transition: all 0.65s ease-out 0s;
+  border-bottom: 5px solid transparent;
 
-  &:hover {
-    border-bottom-color: ${props => props.color};
+  a {
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    transition: all .15s ease-in-out;
+  }
+
+  &:nth-child(1):hover {
+    border-bottom-color: #F583BA;
+  }
+  &:nth-child(2):hover {
+    border-bottom-color: #6DDAF2;
+  }
+  &:nth-child(3):hover {
+    border-bottom-color: #92E085;
+  }
+  &:nth-child(4):hover {
+    border-bottom-color: #F5BD69;
+  }
+  &:nth-child(5):hover {
+    border-bottom-color: #F2856D;
   }
 `
 
 const Nav = () => {
-  const [color, setColor] = useState('transparent')
-
-  const chooseColor = () => {
-    const colors = ['#70d5fc', '#f16da5', '#f7966f', '#ffd670', '#e6f06e']
-    const number = Math.floor(Math.random() * colors.length)
-
-    return colors[number];
-  }
-
-  const handlecolor = () => setColor(chooseColor)
-
   return (
     <>
       <NavContainer>
         <List>
-          <Item color={color} onMouseMove={handlecolor}>
+          <Item>
             <Link to="/">
               home
             </Link>
           </Item>
-          <Item color={color} onMouseMove={handlecolor}>
+          <Item>
             <Link to="/about">
               about
             </Link>
           </Item>
-          <Item color={color} onMouseMove={handlecolor}>
+          <Item>
             <Link to="/posts">
               blog
             </Link>
           </Item>
-          <Item color={color} onMouseMove={handlecolor}>
+          <Item>
             <a href={'https://www.colab55.com/@daliannyvieira'}>
               store
             </a>

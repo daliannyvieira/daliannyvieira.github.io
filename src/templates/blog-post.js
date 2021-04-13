@@ -6,16 +6,7 @@ import Layout from "../components/layout"
 import SEO from '../components/seo';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
 import styled from 'styled-components';
-import color01 from '../images/color01.png'
 import { Spring, animated } from 'react-spring/renderprops'
-
-const WaterColor = styled.img`
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  z-index: -1;
-  opacity: 0.5;
-`;
 
 const Container = styled(animated.div)`
   margin: 2.55rem 0;
@@ -70,15 +61,14 @@ export default ({ data, pageContext }) => {
             description={post.frontmatter.description || post.excerpt}
             keywords={post.frontmatter.keywords}
           />
-          <WaterColor src={color01} alt="" onClick={handleToggle}/>
-            <h1 style={{ margin: 0 }}>
-              {post.frontmatter.published ? '' : 'DRAFT: '}
-              {post.frontmatter.title}
-            </h1>
             <small title={post.frontmatter.longDate}>
               {post.frontmatter.shortDate} &middot;{' '}
               {pluralizeReadingTime(post.timeToRead)}
             </small>
+            <h1 style={{ margin: '2rem auto' }}>
+              {post.frontmatter.published ? '' : 'DRAFT: '}
+              {post.frontmatter.title}
+            </h1>
             <div style={{ marginTop: `1rem` }}>
               <Image
                 fluid={post.frontmatter.cover.childImageSharp.fluid}
@@ -105,15 +95,6 @@ export default ({ data, pageContext }) => {
               >
                 Discuss on Twitter
           </a>{' '}
-          &middot;{' '}
-              <a
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                href={`https://github.com/daliannyvieira/blog/tree/master/content/blog${post.fields.slug
-                  }`}
-              >
-                Edit this post on GitHub
-          </a>
             </small>
             <hr />
             <ul
