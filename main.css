@@ -1,12 +1,8 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;900&display=swap');
 
 body {
   margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -19,9 +15,21 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
-  font-kerning: normal;
   font-weight: 600;
+  background-image: url('./src/images/point.png');
+  background-size: 16px;
 }
+
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 30px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #2A2F36;
 }
@@ -98,5 +106,6 @@ hr {
 
 ::selection {
   background: #F583BA;
-  color: #2A2F36;
+  color: #fff;
 }
+

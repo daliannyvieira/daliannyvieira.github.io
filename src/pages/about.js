@@ -12,14 +12,13 @@ import image07 from "../images/07.jpg"
 import image10 from "../images/me02.jpg"
 
 const About = styled.div`
-  margin: 0 2rem;
   display: flex;
   flex-direction: column;
 
   h1 {
     margin: 1rem 0;
   }
-  
+
   @media (min-width: 992px) {
     max-width: 45vw;
 
@@ -53,36 +52,40 @@ const AboutPage = ({ data }) => {
         ]}
       />
       <About>
-          <h1>Tech as a gift</h1>
-          <p>
-            Hello, my name is Dali, I'm a brazilian developer. I have been working in the technology industry since 2016, and during that time I had the experience of developing a lot of cool products and other projects with a good impact.
-          </p>
-          <img src={image10} alt="That's me, and I'm smiling"/>
-          <p>
-            I was born in place called Paraíba and then went to live in a place called Tacaratu, in the interior of Pernambuco, where I spent a lot of time studying and started to dream of creating my first codes and through them to build a life different from the one I knew.
-          </p>
-          <p>
-            For me, technology was a gift because, thanks to it, I was able to access the great world repository of knowledge, the Internet, and through it I got to know a new world, where I could be who I was and still start to develop my skills to build a career.
-          </p>
-          <blockquote>
-            <p>“It’s not what the world holds for you, it is what you bring to it. ”</p>
-
-            — Anne Shirley, on Anne with an E.
-          </blockquote>
-          <img src={image03} alt="People happy at VaiNaWeb with course certificates"/>
-          <img src={image05} alt="People happy at Pyladies Rio" />
-          <p>
-            I believe that knowledge is the most empowering thing that we can share in the community. Just as technology was a gift that changed my life, I believe it can make a difference in other people's lives, so I love creating connections to share knowledge.
-          </p>
-          <p>
-            I love to share the things I learn, and I did it most of my time working as a teacher to inspire and encourage young people in areas of conflict and social vulnerability to change their lives and communities.
-          </p>
-          <img src={image09} alt="People happy at VaiNaWeb in a workshop about JS"/>
-          <img src={image07} alt="People happy at DjangoGirls Niteroi"/>
-          <img src={image06} alt="People happy at Pyladies Rio"/>
+        <h1>Sobre</h1>
         <p>
-          I also had the opportunity to make many significant exchanges of knowledge in some other code communities created to support underrepresented groups in technology, such as PyLadies, Django Girls and ReactLadies.
+          Olá, você pode me chamar de Dali. Eu sou uma desenvolvedora brasileira, trabalho com tecnologia desde 2016, e desde então tenho tido experiência em desenvolver produtos de grande impacto.
         </p>
+        <p>
+          Eu me interesso em compreender sobre as diversas áreas envolvidas no desenvolvimento de produtos digitais afim de simplificar um mundo que parece cada vez mais complexo.
+          Com amor e entusiasmo, tenho feito isso a maior parte da minha carreira através de redes de tecnologia profunda e de suporte a diversidade. 
+        </p>
+        <h2>Tecnologia como um presente</h2>
+        <img src={image10} alt="That's me, and I'm smiling"/>
+        <p>Eu nasci na Paraíba, depois me mudei para um lugar chamado Tacaratu, no interior de Pernambuco, onde eu passei muito tempo estudando e sonhando em criar minhas primeiras linhas de código para conquistar uma carreira significante e ter uma realidade diferente da que eu conhecia.</p>
+        <p>
+          Para mim, a tecnologia foi um presente porque graças a ela eu tive acesso ao grande repositório de conhecimento do mundo, a Internet, e através disso um novo mundo começou para mim, onde eu finalmente tive o direito de ser quem eu sou e ainda sim começar a desenvolver minhas habilidades como desenvolvedora.
+        </p>
+        <blockquote>
+          <p>“Não é o que o mundo reserva para você, é o que você traz para ele. ”</p>
+
+          — Anne Shirley, on Anne with an E.
+        </blockquote>
+        <img src={image03} alt="People happy at VaiNaWeb with course certificates"/>
+        <img src={image05} alt="People happy at Pyladies Rio" />
+        <p>
+          Toda a minha trajetória me fez perceber que o conhecimento é a coisa mais empoderadora que podemos compartilhar em sociedade.
+          Assim como isso mudou a minha vida, eu acredito que ele pode fazer a diferença na vida de outras pessoas. Por isso, eu amo me conectar com outras pessoas para ensinar e aprender sobre tecnologia.
+        </p>
+        <img src={image09} alt="People happy at VaiNaWeb in a workshop about JS"/>
+        <p>
+          Eu realmente gosto de falar sobre o que eu sei, e tenho feito isso boa parte do meu tempo como professora para inspirar e encorajar jovens em territórios de conflito armado e vulnerabilidade social a buscarem conhecimento para que possam provocar mudanças positivas em suas próprias vidas e em suas comunidades.
+        </p>
+        <p>
+          Eu também tive a oportunidade de trocar conhecimento em mudas comunidades de código criadas para apoiar minorias na tecnologia, como o PyLadies, Django Girls e InspirAda na Computação.
+        </p>
+        <img src={image07} alt="People happy at DjangoGirls Niteroi"/>
+        <img src={image06} alt="People happy at Pyladies Rio"/>
       </About>
     </Layout>
   )

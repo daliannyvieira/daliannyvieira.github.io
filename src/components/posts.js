@@ -16,6 +16,7 @@ const Post = styled.article`
   width: 100%;
   box-shadow: rgba(52, 61, 68, 0.1) 0px 1px 2px;
   max-width: 350px;
+  background: #fff;
   border: 1px solid rgba(52, 61, 68, 0.05);
   border-bottom: 4px solid rgba(52, 61, 68, 0.05);
   border-image: initial;

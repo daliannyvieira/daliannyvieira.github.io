@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import MainBio from "../components/main-bio";
 import styled from 'styled-components'
-import "./main.css"
 
 const Shape = styled.div.attrs(props => ({
   style: {
@@ -18,13 +17,14 @@ const Shape = styled.div.attrs(props => ({
   position: absolute;
   z-index: 1;
   border-radius: 100%;
-  mix-blend-mode: scren;
+  mix-blend-mode: screen;
   opacity: 0.5;
+}
 `;
 
 const Section = styled.section`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -35,32 +35,46 @@ const Section = styled.section`
 const IndexPage = ({ data }) => {
   const { author } = data.site.siteMetadata
 
+  let heightViewPort;
+  let widthViewPort;
+
   const [coord, setCoord] = useState({x: 0, y: 0})
   const [shapes, setShapes] = useState([])
 
+  if (typeof document !== `undefined`) {
+    heightViewPort = document.documentElement.clientHeight
+    widthViewPort = document.documentElement.clientWidth
+  }
+
   const handleCursor = (e) => {
-    const coord = {
-      x: e.pageX,
-      y: e.pageY,
+    if ((e.pageY + 75) < heightViewPort && (e.pageX + 75) < widthViewPort) {
+      const coord = {
+        x: e.pageX,
+        y: e.pageY,
+      }
+      setCoord(coord)
+    } else {
+      setCoord({x: 0, y: 0})
     }
-    setCoord(coord)
   }
 
   const handleClick = (e) => {
-    const colors = ['#70d5fc', '#f16da5', '#f7966f', '#ffd670', '#e6f06e']
-    const sizes = [3, 4.5, 6, 7.5, 9]
+    if ((e.pageY + 75) < heightViewPort && (e.pageX + 75) < widthViewPort) {
+      const colors = ['#70d5fc', '#f16da5', '#f7966f', '#ffd670', '#e6f06e']
+      const sizes = [3, 4.5, 6, 7.5, 9]
 
-    const random = Math.floor(Math.random() * colors.length)
+      const random = Math.floor(Math.random() * colors.length)
 
-    const coord = {
-      x: e.pageX,
-      y: e.pageY,
-      size: sizes[random],
-      color: colors[random]
+      const coord = {
+        x: e.pageX,
+        y: e.pageY,
+        size: sizes[random],
+        color: colors[random]
+      }
+      const shape = shapes.concat(coord)
+
+      setShapes(shape)
     }
-    const shape = shapes.concat(coord)
-
-    setShapes(shape)
   }
 
   return (

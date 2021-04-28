@@ -13,16 +13,20 @@ const Section = styled.section`
 
   @media (min-width: 992px) {
     flex-direction: row-reverse;
-    max-width: 55vw;
+    max-width: 65vw;
   }
 `;
 
 const Avatar = styled.div`
-  max-width: 360px;
-  
-  img {
-    border-radius: 6px;
-    max-width: 100%;
+  margin-top: 1rem;
+  width: 275px;
+  height: 275px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  @media (min-width: 992px) {
+    width: 400px;
+    height: 400px;
   }
 `;
 
@@ -61,7 +65,12 @@ const Links = styled.ul`
     display: flex;
     margin-right: 1rem;
   }
-  
+
+  li a {
+    padding: 0.45rem;
+    // background: green;
+  }
+
   li {
     background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
     -webkit-background-clip: text;
@@ -98,15 +107,20 @@ const MainBio = ({author}) => {
       return (
         <Section>
           <Avatar>
-            <img src={me} alt="A picture with me smiling" />
+            <img src={me} alt="I'm smiling" />
           </Avatar>
           <Sidebar>
             <h1>
-              Hi there! I’m Dali,
+              Olá, eu sou a Dali!
             </h1>
             <p>
-              A senior backend developer at 1STi in Brazil.
-              I have a huge experience in UI development and I love using technologies to solve real problems of the society.
+              Atualmente sou desenvolvedora de tecnologia senior, na 1STi.
+            </p>
+            <p>
+              Me interesso em compreender sobre as diversas áreas envolvidas no desenvolvimento de produtos digitais afim de simplificar um mundo que parece cada vez mais complexo.
+            </p>
+            <p>
+              Com amor e entusiasmo, tenho feito isso a maior parte da minha carreira através de redes de tecnologia profunda e de suporte a diversidade. 
             </p>
             <footer>
               <Links>
@@ -114,6 +128,7 @@ const MainBio = ({author}) => {
                   <li key={s.kind}>
                     <a href={s.url}>
                       <FontAwesomeIcon
+                        size={s.size}
                         icon={s.icon}
                         title={`Link to my ${s.kind}`}
                       />

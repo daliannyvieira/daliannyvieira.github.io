@@ -7,9 +7,7 @@ const NavContainer = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255);
-  width: 100%;
-  margin: 0;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,10 +16,12 @@ const NavContainer = styled.nav`
 `
 
 const List = styled.ul`
-  display: flex;
-  margin: 0;
-  box-shadow: 0 4px 2px -2px rgba(12,13,14,0.15);
   width: 100vw;
+  padding: 0;
+  margin: 0;
+  background: rgba(255, 255, 255);
+  box-shadow: 0 4px 2px -2px rgba(12,13,14,0.15);
+  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -32,15 +32,12 @@ const List = styled.ul`
 `
 
 const Item = styled.li`
-  margin: 0;  
-  padding: 0.75rem 1rem 0.45rem;
+  padding: 1.25rem 1rem 0.85rem;
   list-style: none;
   transition: 0.65s ease-out;
   border-bottom: 5px solid transparent;
   color: rgb(43, 43, 44);
   cursor: pointer;
-  margin: 0px;
-  padding: 0.75rem 1rem 0.45rem;
   list-style: none;
   transition: all 0.65s ease-out 0s;
   border-bottom: 5px solid transparent;
@@ -76,12 +73,12 @@ const Nav = () => {
         <List>
           <Item>
             <Link to="/">
-              home
+              início
             </Link>
           </Item>
           <Item>
             <Link to="/about">
-              about
+              sobre
             </Link>
           </Item>
           <Item>
@@ -91,7 +88,7 @@ const Nav = () => {
           </Item>
           <Item>
             <a href={'https://www.colab55.com/@daliannyvieira'}>
-              store
+              lojinha
             </a>
           </Item>
         </List>
