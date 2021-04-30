@@ -9,22 +9,61 @@ import styled from 'styled-components';
 import { Spring, animated } from 'react-spring/renderprops'
 
 const Container = styled(animated.div)`
-  margin: 2.55rem 0;
-  width: 90vw;
+  width: 80vw;
+  padding: 1rem;
   border-radius: .5rem;
   position: relative;
   border-color: #ffb8d1;
   border-style: solid;
   border-width: 1px;
   background: #fff;
-  padding: 1.25rem;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
   border-color: #f5f5f5;
   border-style: solid;
   border-width: 1px;
 
+  blockquote {
+    margin: 0;
+  }
+
+  blockquote p {
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.65rem;
+    display: inline-block;
+    margin: 0.8em auto;
+  }
+
+  blockquote::before {
+    content: "";
+    display: block;
+    width: 90%;
+    margin: 2rem auto 1rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  blockquote::after {
+    content: "";
+    display: block;
+    width: 90%;
+    margin: 1rem auto 2rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  hr {
+    display: block;
+    width: 90%;
+    margin: 1rem auto 4rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
   @media (min-width: 992px) {
     max-width: 45vw;
+
+    blockquote p {
+      font-size: 1.7rem;
+      line-height: 1.4rem;
+    }
   }
 `;
 

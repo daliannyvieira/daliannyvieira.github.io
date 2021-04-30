@@ -35,8 +35,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.625rem;
-  line-height: 3.48rem;
+  font-size: 2rem;
+  line-height: 2.25rem;
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3.625rem;
+    line-height: 3.48rem;
+  }
 }
 
 h2 {
@@ -71,37 +78,6 @@ a {
 ul {
   font-size: 1rem;
   line-height: 1.8em;
-}
-
-blockquote p {
-  text-align: center;
-  font-size: 1.7em;
-  line-height: 1.4em;
-  display: inline-block;
-  margin: 0.8em auto;
-}
-
-blockquote::before {
-  content: "";
-  display: block;
-  width: 90%;
-  margin: 2rem auto 1rem;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
-}
-
-blockquote::after {
-  content: "";
-  display: block;
-  width: 90%;
-  margin: 1rem auto 2rem;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
-}
-
-hr {
-  display: block;
-  width: 90%;
-  margin: 1rem auto 4rem;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 ::selection {

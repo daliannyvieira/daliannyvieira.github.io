@@ -1,38 +1,56 @@
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
 import React from 'react';
 
 import styled from 'styled-components';
+import cat from "../images/cat.svg"
 
 const NavContainer = styled.nav`
   position: fixed;
   top: 0;
-  left: 0;
+  margin: 0 auto;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
-}
+  z-index: 11;
+
+  @media (min-width: 992px) {
+    max-width: 75vw;
+    position: absolute;
+  }
+`
+
+const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: rgba(52,61,68,0.1) 0px 1px 2px;
+  width: 100vw;
+  justify-content: space-between;
+
+  @media (min-width: 992px) {
+    box-shadow: none;
+    background: transparent;
+    width: 65vw;
+  }
 `
 
 const List = styled.ul`
-  width: 100vw;
   padding: 0;
   margin: 0;
-  background: rgba(255, 255, 255);
-  box-shadow: 0 4px 2px -2px rgba(12,13,14,0.15);
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: flex-end;
+  
   @media (min-width: 992px) {
-    width: 65vw;
-    justify-content: flex-start;
+    width: 20rem;
   }
 `
 
 const Item = styled.li`
-  padding: 1.25rem 1rem 0.85rem;
+  text-align: center;
+  width: 4rem;
+  padding: 1rem 0 0.65rem;
   list-style: none;
   transition: 0.65s ease-out;
   border-bottom: 5px solid transparent;
@@ -41,6 +59,10 @@ const Item = styled.li`
   list-style: none;
   transition: all 0.65s ease-out 0s;
   border-bottom: 5px solid transparent;
+
+  @media (min-width: 992px) {
+     width: 10rem;
+  }
 
   a {
     background-color: transparent;
@@ -66,32 +88,44 @@ const Item = styled.li`
   }
 `
 
+const Logo = styled.span`
+  margin-left: 1rem;
+  width: 2rem;
+`
+
 const Nav = () => {
   return (
     <>
       <NavContainer>
-        <List>
-          <Item>
-            <Link to="/">
-              início
+        <Wrap>
+          <Logo>
+            <Link to='/' activeStyle={{ color: '#F583BA', fontWeight: 'bolder' }}>
+              <img src={cat} alt=""/>
             </Link>
-          </Item>
-          <Item>
-            <Link to="/about">
-              sobre
-            </Link>
-          </Item>
-          <Item>
-            <Link to="/posts">
-              blog
-            </Link>
-          </Item>
-          <Item>
-            <a href={'https://www.colab55.com/@daliannyvieira'}>
-              lojinha
-            </a>
-          </Item>
-        </List>
+          </Logo>
+          <List>
+            <Item>
+              <Link to='/' activeStyle={{ color: '#F583BA', fontWeight: 'bolder' }}>
+                início
+              </Link>
+            </Item>
+            <Item>
+              <Link to='/about' activeStyle={{ color: '#6DDAF2', fontWeight: 'bolder' }}>
+                sobre
+              </Link>
+            </Item>
+            <Item>
+              <Link to='/posts' activeStyle={{ color: '#92E085',  fontWeight: 'bolder' }}>
+                blog
+              </Link>
+            </Item>
+            <Item>
+              <a href={'https://www.colab55.com/@daliannyvieira'}>
+                lojinha
+              </a>
+            </Item>
+          </List>
+        </Wrap>
       </NavContainer>
     </>
   )

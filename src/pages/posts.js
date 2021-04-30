@@ -6,7 +6,6 @@ import Posts from "../components/posts";
 
 const PostsPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
-
   return (
     <Layout>
       <SEO

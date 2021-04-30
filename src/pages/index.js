@@ -46,8 +46,11 @@ const IndexPage = ({ data }) => {
     widthViewPort = document.documentElement.clientWidth
   }
 
+  const wrapY = (y) =>  y > 75 && (y + 75) < heightViewPort;
+  const wrapX = (x) => x > 75 && (x + 75) < widthViewPort;
+
   const handleCursor = (e) => {
-    if ((e.pageY + 75) < heightViewPort && (e.pageX + 75) < widthViewPort) {
+    if (wrapY(e.pageY) && wrapX(e.pageX)) {
       const coord = {
         x: e.pageX,
         y: e.pageY,
@@ -59,7 +62,7 @@ const IndexPage = ({ data }) => {
   }
 
   const handleClick = (e) => {
-    if ((e.pageY + 75) < heightViewPort && (e.pageX + 75) < widthViewPort) {
+    if (wrapY(e.pageY) && wrapX(e.pageX)) {
       const colors = ['#70d5fc', '#f16da5', '#f7966f', '#ffd670', '#e6f06e']
       const sizes = [3, 4.5, 6, 7.5, 9]
 
@@ -79,10 +82,12 @@ const IndexPage = ({ data }) => {
 
   return (
     <Section onClick={handleClick} onMouseMove={handleCursor}>
-      <Shape
-        x={`calc(${coord.x}px - 1.5rem)`}
-        y={`calc(${coord.y}px - 1.5rem)`}
-      />
+      {coord.x !== 0 && (
+        <Shape
+          x={`calc(${coord.x}px - 1.5rem)`}
+          y={`calc(${coord.y}px - 1.5rem)`}
+        />
+      )}
       {shapes && shapes.map((shape, index) => {
         return (
           <Shape
