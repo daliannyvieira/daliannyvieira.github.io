@@ -62,7 +62,7 @@ const Container = styled(animated.div)`
 
     blockquote p {
       font-size: 1.7rem;
-      line-height: 1.4rem;
+      line-height: 2rem;
     }
   }
 `;
@@ -108,7 +108,7 @@ export default ({ data, pageContext }) => {
               {post.frontmatter.published ? '' : 'DRAFT: '}
               {post.frontmatter.title}
             </h1>
-            <div style={{ marginTop: `1rem` }}>
+            {/* <div style={{ marginTop: `1rem` }}>
               <Image
                 fluid={post.frontmatter.cover.childImageSharp.fluid}
                 alt={post.frontmatter.coverAuthor}
@@ -119,22 +119,13 @@ export default ({ data, pageContext }) => {
               <a href={post.frontmatter.coverOriginalUrl}>
                 {post.frontmatter.coverAuthor}
               </a>{' '}
-            </small>
+            </small> */}
             <div
               style={{
                 margin: `1rem 0`,
               }}
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
-            <small>
-              <a
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                href={`https://twitter.com/search?q=${publicUrl}`}
-              >
-                Discuss on Twitter
-          </a>{' '}
-            </small>
             <hr />
             <ul
               style={{
@@ -169,6 +160,15 @@ export default ({ data, pageContext }) => {
                 )}
               </li>
             </ul>
+            <small>
+              <a
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                href={`https://twitter.com/search?q=${publicUrl}`}
+              >
+                Discuss on Twitter
+              </a>{' '}
+            </small>
           </Container>
         )}
       </Spring>
