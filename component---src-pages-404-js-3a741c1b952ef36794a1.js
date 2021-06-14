@@ -1,0 +1,2 @@
+(self.webpackChunkdaliannyvieira=self.webpackChunkdaliannyvieira||[]).push([[883],{9616:function(e,t,n){"use strict";n.r(t);var a=n(7294),l=n(6809),u=n(3751);t.default=function(){return a.createElement(l.Z,null,a.createElement(u.Z,{title:"404: Not found"}),a.createElement("h1",null,"NOT FOUND"),a.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-3a741c1b952ef36794a1.js.map
