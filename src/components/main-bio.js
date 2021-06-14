@@ -1,9 +1,8 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled, { keyframes } from 'styled-components'
 import SOCIAL from '../constants/social';
 import me from '../images/me.jpg'
-import styled, { keyframes } from 'styled-components'
 
 const Section = styled.section`
   display: flex;
@@ -13,15 +12,15 @@ const Section = styled.section`
 
   @media (min-width: 992px) {
     flex-direction: row-reverse;
-    max-width: 65vw;
+    max-width: 55vw;
   }
 `;
 
-const Avatar = styled.div`
+const Avatar = styled.img`
   margin-top: 1rem;
   width: 275px;
   height: 275px;
-  border-radius: 100%;
+  border-radius: 50%;
   overflow: hidden;
 
   @media (min-width: 992px) {
@@ -68,7 +67,6 @@ const Links = styled.ul`
 
   li a {
     padding: 0.45rem;
-    // background: green;
   }
 
   li {
@@ -96,75 +94,44 @@ const Links = styled.ul`
       animation: ${rainbow} 3s linear infinite;
     }
   }
-
 `;
 
-const MainBio = ({author}) => {
-  return (
-  <StaticQuery
-    query={SidebarQuery}
-    render={() => {
-      return (
-        <Section>
-          <Avatar>
-            <img src={me} alt="I'm smiling" />
-          </Avatar>
-          <Sidebar>
-            <h1>
-              Olá, eu sou a Dali!
-            </h1>
-            <p>
-              Atualmente sou desenvolvedora de tecnologia senior, na 1STi.
-            </p>
-            <p>
-              Me interesso em compreender sobre as diversas áreas envolvidas no desenvolvimento de produtos digitais afim de simplificar um mundo que parece cada vez mais complexo.
-            </p>
-            <p>
-              Com amor e entusiasmo, tenho feito isso a maior parte da minha carreira através de redes de tecnologia profunda e de suporte a diversidade. 
-            </p>
-            <footer>
-              <Links>
-                {SOCIAL.map(s => (
-                  <li key={s.kind}>
-                    <a href={s.url}>
-                      <FontAwesomeIcon
-                        size={s.size}
-                        icon={s.icon}
-                        title={`Link to my ${s.kind}`}
-                      />
-                    </a>
-                  </li>
-                ))}
-              </Links>
-              <small>© {new Date().getFullYear()}, Built with
-            {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a> by @daliannyvieira.</small>
-            </footer>
-          </Sidebar>
-        </Section>
-      );
-    }}
-  />
-)};
-
-const SidebarQuery = graphql`
-  query SidebarQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic2.jpg/" }) {
-      childImageSharp {
-        fixed(width: 250, height: 250, quality: 90) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`;
+const MainBio = () => (
+  <Section>
+    <Avatar src={me} alt="I'm smiling"/>
+    <Sidebar>
+      <h1>
+        Olá, eu sou a Dali!
+      </h1>
+      <p>
+        Atualmente sou desenvolvedora de tecnologia senior, na 1STi.
+      </p>
+      <p>
+        Me interesso em compreender sobre as diversas áreas envolvidas no desenvolvimento de produtos digitais afim de simplificar um mundo que parece cada vez mais complexo.
+      </p>
+      <p>
+        Com amor e entusiasmo, tenho feito isso a maior parte da minha carreira através de redes de tecnologia profunda e de suporte a diversidade. 
+      </p>
+      <footer>
+        <Links>
+          {SOCIAL.map(s => (
+            <li key={s.kind}>
+              <a href={s.url}>
+                <FontAwesomeIcon
+                  size={s.size}
+                  icon={s.icon}
+                  title={`Link to my ${s.kind}`}
+                />
+              </a>
+            </li>
+          ))}
+        </Links>
+        <small>© {new Date().getFullYear()}, Built with
+      {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a> by @daliannyvieira.</small>
+      </footer>
+    </Sidebar>
+  </Section>
+)
 
 export default MainBio;

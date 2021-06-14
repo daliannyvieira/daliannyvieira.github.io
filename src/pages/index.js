@@ -17,7 +17,6 @@ const Shape = styled.div.attrs(props => ({
   position: absolute;
   z-index: 1;
   border-radius: 100%;
-  mix-blend-mode: screen;
   opacity: 0.5;
 }
 `;
@@ -68,15 +67,14 @@ const IndexPage = ({ data }) => {
 
       const random = Math.floor(Math.random() * colors.length)
 
-      const coord = {
+      const shape = {
         x: e.pageX,
         y: e.pageY,
         size: sizes[random],
         color: colors[random]
       }
-      const shape = shapes.concat(coord)
 
-      setShapes(shape)
+      setShapes([...shapes, shape])
     }
   }
 
