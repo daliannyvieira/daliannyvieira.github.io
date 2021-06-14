@@ -23,7 +23,7 @@ const Footer = () => (
     <Title> © {new Date().getFullYear()}, Built with
             {` `}
       <a href="https://www.gatsbyjs.org">Gatsby</a> by @daliannyvieira.</Title>
-    <Subtitle> ALL RIGHTS RESERVED. </Subtitle>
+    <Subtitle> ALL RIGHTS RESERVED </Subtitle>
   </footer>
 )
 

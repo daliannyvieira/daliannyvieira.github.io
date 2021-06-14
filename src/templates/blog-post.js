@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
-import Image from 'gatsby-image';
-
 import Layout from "../components/layout"
 import SEO from '../components/seo';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
 import styled from 'styled-components';
-import { Spring, animated } from 'react-spring/renderprops'
+import { Spring, animated } from 'react-spring'
 
 const Container = styled(animated.div)`
   width: 80vw;

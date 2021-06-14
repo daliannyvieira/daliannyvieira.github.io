@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from "./nav"
-import { animated } from 'react-spring/renderprops'
+import { animated } from 'react-spring'
 import styled from 'styled-components';
 
 const Main = styled.main`
