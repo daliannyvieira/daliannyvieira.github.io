@@ -15,8 +15,8 @@ const NavContainer = styled.nav`
   z-index: 11;
 
   @media (min-width: 992px) {
-    max-width: 75vw;
     position: absolute;
+    max-width: 55vw;
   }
 `
 
@@ -31,7 +31,6 @@ const Wrap = styled.div`
   @media (min-width: 992px) {
     box-shadow: none;
     background: transparent;
-    width: 65vw;
   }
 `
 

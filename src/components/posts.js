@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
@@ -15,7 +15,6 @@ const Post = styled.article`
   position: relative;
   width: 100%;
   box-shadow: rgba(52, 61, 68, 0.1) 0px 1px 2px;
-  max-width: 350px;
   background: #fff;
   border: 1px solid rgba(52, 61, 68, 0.05);
   border-bottom: 4px solid rgba(52, 61, 68, 0.05);
@@ -23,12 +22,12 @@ const Post = styled.article`
   transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
   margin: 0em 1em 1em auto;
   border-radius: 6px;
-  padding: 0.6em 1.4em 1.6em;
+  padding: 0.25rem 0.85rem 0.25rem;
   cursor: pointer;
 
   @media (min-width: 992px) {
-    max-width: 20rem;
-    margin: 0.55rem;
+    margin: 0.45rem;
+    max-width: 14rem;
   }
 
   &:hover {
@@ -40,13 +39,18 @@ const Post = styled.article`
   a {
     text-decoration: none;
   }
+
+  h2 {
+    font-size: 1.513rem;
+    line-height: 1.65rem;
+  }
 `;
 
 const Cover = styled.header`
   position: relative;
   img,
   div {
-    height: 12rem;
+    height: 10rem;
     border-radius: 6px;
     margin: 1rem 0;
   }
@@ -60,7 +64,7 @@ const Cover = styled.header`
     top: 0;
     left: 0;
     background: #439145;
-    height: 11rem;
+    height: 10rem;
     margin: 1rem 0;
     mix-blend-mode: screen;
     border-radius: 6px;
@@ -96,7 +100,7 @@ const Legend = styled.small`
 const Posts = ({ posts }) => {
   return (
     <Container>
-      <SEO
+      <Seo
         title="Home"
         keywords={[
           `blog`,
@@ -127,8 +131,9 @@ const Posts = ({ posts }) => {
             <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
             <Cover>
               <Legend title={node.frontmatter.longDate}>
-                {node.frontmatter.shortDate} &middot;{' '}
-                {pluralizeReadingTime(node.timeToRead)}
+                {node.frontmatter.shortDate}
+                {/* &middot;{' '} */}
+                {/* {pluralizeReadingTime(node.timeToRead)} */}
               </Legend>
               <Image
                 fluid={fluid}

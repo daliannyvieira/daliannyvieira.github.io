@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 
-export default [
+const icons = [
   {
     kind: 'GitHub',
     icon: faGithub,
@@ -39,3 +39,5 @@ export default [
     url: 'https://instagram.com/daliannyvieira/',
   },
 ];
+
+export default icons

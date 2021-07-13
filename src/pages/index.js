@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import MainBio from "../components/main-bio";
 import styled from 'styled-components'
 
@@ -22,7 +22,6 @@ const Shape = styled.div.attrs(props => ({
 `;
 
 const Section = styled.section`
-  width: 100vw;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -33,6 +32,8 @@ const Section = styled.section`
 
 const IndexPage = ({ data }) => {
   const { author } = data.site.siteMetadata
+
+  const posts = data.allMarkdownRemark.edges.map(n => n.node.frontmatter);
 
   let heightViewPort;
   let widthViewPort;
@@ -98,7 +99,7 @@ const IndexPage = ({ data }) => {
         )
       })}
       <Layout>
-        <SEO
+        <Seo
           title="Home"
           keywords={[
             `blog`,

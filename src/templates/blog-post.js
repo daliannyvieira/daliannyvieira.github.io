@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from "../components/layout"
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
 import styled from 'styled-components';
 import { Spring, animated } from 'react-spring'
@@ -65,18 +65,20 @@ const Container = styled(animated.div)`
   }
 `;
 
-export default ({ data, pageContext }) => {
+const Blog = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
   const { previous, next } = pageContext;
   const publicUrl = `https://daliannyvieira.github.io/blog${post.fields.slug}`;
 
   const [toggle, setToggle] = useState(true)
 
-  const handleToggle = () => setToggle(!toggle)
-
   useEffect(() => {
-    handleToggle()
-  }, [])
+    function handleToggle() {
+      setToggle(false)
+    }
+
+    handleToggle();
+  }, []);
 
   return (
     <Layout>
@@ -86,14 +88,14 @@ export default ({ data, pageContext }) => {
           rotate: toggle ? '0deg' : '180deg',
           opacity: toggle ? 0: 1,
         }}
-        onRest={() => console.log('done')}>
+        >
         {({ opacity }) => (
           <Container
             style={{
               opacity: opacity,
             }}
           >
-          <SEO
+          <Seo
             title={`${post.frontmatter.title}`}
             description={post.frontmatter.description || post.excerpt}
             keywords={post.frontmatter.keywords}
@@ -205,3 +207,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Blog

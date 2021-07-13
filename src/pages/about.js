@@ -1,7 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import styled from 'styled-components';
 
 import image03 from "../images/03.jpg"
@@ -20,8 +19,6 @@ const About = styled.div`
   }
 
   @media (min-width: 992px) {
-    max-width: 45vw;
-
     img {
       margin: 1rem auto;
       max-width: 70%;
@@ -29,10 +26,10 @@ const About = styled.div`
   }
 `;
 
-const AboutPage = ({ data }) => {
+export default function AboutPage() {
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Home"
         keywords={[
           `blog`,
@@ -90,43 +87,3 @@ const AboutPage = ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        author
-      }
-    }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { published: { eq: true } } }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          timeToRead
-          frontmatter {
-            shortDate: date(formatString: "MMMM DD, YYYY")
-            longDate: date(formatString: "MMMM DD, YYYY, h:mm:ss a")
-            title
-            description
-            categories
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-export default AboutPage;

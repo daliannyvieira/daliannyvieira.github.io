@@ -7,27 +7,23 @@ const Main = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+
+  @media (min-width: 992px) {
+    max-width: 55vw;
+  }
 `;
 
 const Container = styled(animated.section)`
-  margin: 4rem 0;
   padding: 1rem;
-
-  @media (min-width: 992px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 6rem 0;
-    width: 75vw;
-  }
+  margin: 4rem auto;
 `;
 
 const Layout = ({ children }) => {
   return (
     <Main>
-      <Nav/>
-      <Container >
+      <Nav />
+      <Container>
         {children}
       </Container>
     </Main>
