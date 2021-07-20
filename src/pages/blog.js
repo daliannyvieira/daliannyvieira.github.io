@@ -5,12 +5,17 @@ import Seo from "../components/seo"
 import Posts from "../components/posts";
 
 const PostsPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allMarkdownRemark.edges.map(post => {
+    return {
+      ...post.node.frontmatter,
+      ...post.node.fields
+    }
+  });
 
   return (
     <Layout>
       <Seo
-        title="Home"
+        title="Blog"
         keywords={[
           `blog`,
           `gatsby`,
@@ -37,7 +42,11 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { published: { eq: true } } }
+      filter: {
+        frontmatter: {
+          published: { eq: true },
+        }
+      }
     ) {
       edges {
         node {
@@ -47,7 +56,8 @@ export const query = graphql`
           }
           timeToRead
           frontmatter {
-            shortDate: date(formatString: "MMMM DD, YYYY")
+            year: date(formatString: "YYYY")
+            shortDate: date(locale: "pt-br", formatString: "MMMM, YYYY")
             longDate: date(formatString: "MMMM DD, YYYY, h:mm:ss a")
             title
             description

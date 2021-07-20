@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import MainBio from "../components/main-bio";
@@ -30,11 +29,7 @@ const Section = styled.section`
   align-items: center;
 `;
 
-const IndexPage = ({ data }) => {
-  const { author } = data.site.siteMetadata
-
-  const posts = data.allMarkdownRemark.edges.map(n => n.node.frontmatter);
-
+const IndexPage = () => {
   let heightViewPort;
   let widthViewPort;
 
@@ -118,48 +113,10 @@ const IndexPage = ({ data }) => {
             `leadership`,
           ]}
         />
-        <MainBio author={author}  />
+        <MainBio />
       </Layout>
     </Section>
   )
 }
-
-export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        author
-      }
-    }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { published: { eq: true } } }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          timeToRead
-          frontmatter {
-            shortDate: date(formatString: "MMMM DD, YYYY")
-            longDate: date(formatString: "MMMM DD, YYYY, h:mm:ss a")
-            title
-            description
-            categories
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
 
 export default IndexPage;

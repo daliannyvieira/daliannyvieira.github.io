@@ -1,14 +1,76 @@
 import React from 'react';
-import Seo from "../components/seo"
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
-import pluralizeReadingTime from "../constants/pluralize-reading-time";
 import styled from 'styled-components'
+
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Container = styled.section`
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  position: relative;
+
+  @media (min-width: 992px) {
+    margin: 1rem 0;
+  }
+
+  h3 {
+    padding: 0.55rem 0;
+    margin: 0 0 1rem;
+    width: 4rem;
+    border-bottom: 5px solid transparent;
+
+    @media (min-width: 992px) {
+      margin: 0 1rem;
+      padding: 1rem 0;
+      position: absolute;
+      text-align: right;
+      top: 0;
+      left: -5.45rem;
+    }
+  }
+
+  &:nth-child(2) {
+    h3 {
+      border-bottom-color: #F583BA;
+      color: #F583BA;
+    }
+  }
+  &:nth-child(3) {
+    h3 {
+      border-bottom-color: #6DDAF2;
+      color: #6DDAF2;
+    }
+  }
+  &:nth-child(4) {
+    h3 {
+      border-bottom-color: #92E085;
+      color: #92E085;
+    }
+  }
+  &:nth-child(5) {
+    h3 {
+      border-bottom-color: #F5BD69;
+      color: #F5BD69;
+    }
+  }
+  &:nth-child(6) {
+    h3 {
+      border-bottom-color: #F2856D;
+      color: #F2856D;
+    }
+  }
+`;
+
+
+const PostsContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Post = styled.article`
@@ -36,6 +98,7 @@ const Post = styled.article`
     border-radius: 0px 0px 6px 6px;
     border-bottom: 4px solid #92E085;
   }
+  
   a {
     text-decoration: none;
   }
@@ -98,61 +161,46 @@ const Legend = styled.small`
 `;
 
 const Posts = ({ posts }) => {
-  return (
-    <Container>
-      <Seo
-        title="Home"
-        keywords={[
-          `blog`,
-          `gatsby`,
-          `javascript`,
-          `vuejs`,
-          `vue`,
-          `nodejs`,
-          `node`,
-          `reactjs`,
-          `react`,
-          `python`,
-          `vainaweb`,
-          `dalianny vieira`,
-          `teaching`,
-          `leadership`,
-        ]}
-      />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title;
-        const imageAuthor = node.frontmatter.coverAuthor;
-        const { fluid } = node.frontmatter.cover.childImageSharp;
+  const groupBy = key => array =>
+    array.reduce((objectsByKeyValue, obj) => {
+      const value = obj[key];
+      objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+      return objectsByKeyValue;
+    }, {});
 
-        return (
-          <Post
-            key={node.fields.slug}
-          >
-            <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-            <Cover>
-              <Legend title={node.frontmatter.longDate}>
-                {node.frontmatter.shortDate}
-                {/* &middot;{' '} */}
-                {/* {pluralizeReadingTime(node.timeToRead)} */}
-              </Legend>
-              <Image
-                fluid={fluid}
-                alt={imageAuthor}
-              />
-            </Cover>
-            <h2>
-              {title}
-            </h2>
-            {/* <p
-              dangerouslySetInnerHTML={{
-                __html: node.frontmatter.description || node.excerpt,
-              }}
-            /> */}
-            </Link>
-          </Post>
-        );
-      })}
-    </Container>
+  const groupByYear = groupBy('year');
+  const newPosts = groupByYear(posts)
+  const fields = Object.keys(newPosts).reverse()
+
+  return (
+    <Wrap>
+      <h1>Últimas postagens</h1>
+      {fields.map(field => (
+        <Container>
+          <h3>{field}</h3>
+          <PostsContainer>
+            {newPosts[field].reverse().map(post => (
+              <Post>
+                <Link style={{ boxShadow: `none` }} to={`/blog${post.slug}`}>
+                  <Cover>
+                    <Legend>
+                      {post.shortDate}
+                    </Legend>
+                    <Image
+                      fluid={post.cover.childImageSharp.fluid}
+                      alt={post.coverAuthor}
+                    />
+                  </Cover>
+                  <h2>
+                    {post.title}
+                  </h2>
+                </Link>
+              </Post>
+            ))}
+          </PostsContainer>
+        </Container>
+      ))}
+    </Wrap>
   )
 }
 

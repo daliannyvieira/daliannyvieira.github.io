@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled, { keyframes } from 'styled-components'
 import SOCIAL from '../constants/social';
-import me from '../images/me.jpg'
+import me from '../images/avatar01.jpg'
 
 const Wrap = styled.div`
   display: flex;

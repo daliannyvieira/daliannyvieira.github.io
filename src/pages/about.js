@@ -15,7 +15,7 @@ const About = styled.div`
   flex-direction: column;
 
   h1 {
-    margin: 1rem 0;
+    margin-bottom: 1rem;
   }
 
   @media (min-width: 992px) {
@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <Layout>
       <Seo
-        title="Home"
+        title="Sobre"
         keywords={[
           `blog`,
           `gatsby`,

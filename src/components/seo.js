@@ -26,9 +26,7 @@ function SEO({ description, lang, meta, title, keywords }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title} - A blog by ${
-        site.siteMetadata.author
-      }`}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -78,7 +76,7 @@ function SEO({ description, lang, meta, title, keywords }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `pt-br`,
   meta: [],
   description: ``,
 }

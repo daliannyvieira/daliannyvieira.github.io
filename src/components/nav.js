@@ -52,7 +52,6 @@ const Item = styled.li`
   padding: 1rem 0 0.65rem;
   list-style: none;
   transition: 0.65s ease-out;
-  border-bottom: 5px solid transparent;
   color: rgb(43, 43, 44);
   cursor: pointer;
   list-style: none;
@@ -99,7 +98,7 @@ const Nav = () => {
         <Wrap>
           <Logo>
             <Link to='/' activeStyle={{ color: '#F583BA', fontWeight: 'bolder' }}>
-              <img src={cat} alt=""/>
+              <img src={cat} alt="Icone Inicio"/>
             </Link>
           </Logo>
           <List>
@@ -114,7 +113,7 @@ const Nav = () => {
               </Link>
             </Item>
             <Item>
-              <Link to='/posts' activeStyle={{ color: '#92E085',  fontWeight: 'bolder' }}>
+              <Link to='/blog' activeStyle={{ color: '#92E085',  fontWeight: 'bolder' }}>
                 blog
               </Link>
             </Item>
