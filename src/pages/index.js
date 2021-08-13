@@ -1,8 +1,9 @@
 import React, {useState} from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import MainBio from "../components/main-bio";
 import styled from 'styled-components'
+
+import Seo from "../components/seo"
+import Layout from "../components/layout"
+import Bio from "../components/bio";
 
 const Shape = styled.div.attrs(props => ({
   style: {
@@ -113,7 +114,7 @@ const IndexPage = () => {
             `leadership`,
           ]}
         />
-        <MainBio />
+        <Bio />
       </Layout>
     </Section>
   )

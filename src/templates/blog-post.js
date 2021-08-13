@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
-import Layout from "../components/layout"
-import Seo from '../components/seo';
-import pluralizeReadingTime from "../constants/pluralize-reading-time";
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 import { Spring, animated } from 'react-spring'
+
+import Seo from '../components/seo';
+import Layout from "../components/layout"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import SOCIAL from '../constants/social';
+import pluralizeReadingTime from "../constants/pluralize-reading-time";
 
 const Container = styled(animated.div)`
+  padding: 2rem 1rem 2rem;
   width: 90vw;
-  padding: 4rem 2.45rem 4rem;
   border-radius: .5rem;
   position: relative;
   border-color: #ffb8d1;
@@ -22,36 +25,12 @@ const Container = styled(animated.div)`
   border-style: solid;
   border-width: 1px;
 
-  blockquote {
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  blockquote p {
-    text-align: center;
-    font-size: 1.25rem;
-    line-height: 1.65rem;
-    display: inline-block;
-    margin: 0.8em auto;
-  }
-
-  blockquote::before {
-    content: "";
-    display: block;
-    width: 40%;
-    margin: 2rem auto 1rem;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
-  }
-
-  blockquote::after {
-    content: "";
-    display: block;
-    width: 40%;
-    margin: 1rem auto 2rem;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
+  strong {
+    font-weight 800;
   }
 
   @media (min-width: 992px) {
+    padding: 4rem 2.45rem 4rem;
     max-width: 55vw;
 
     p, ul {
@@ -72,41 +51,63 @@ const Container = styled(animated.div)`
   svg {
     color: #6DDAF2;
   }
+  `;
+
+const Title = styled.h1`
+  margin-bottom: 1rem;
 `;
 
-
-const Legend = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 1rem;
-
-  svg {
-    color: #6DDAF2;
+const rainbow = keyframes`
+  50% {
+    transform: translateY(-20px) scaleY(0.75);
   }
-  a { 
-    color: #6DDAF2;
-  }
-`;
+`
 
 const Twitter = styled.div`
   position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 1rem;
+  bottom: 5%;
+  right: 100%;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+  border-color: #6DDAF2;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background: #6DDAF2;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
 
   svg {
-    color: #6DDAF2;
+    color: #fff;
   }
-  a { 
-    color: #6DDAF2;
+
+  @media (min-width: 992px) {
+    background: #6DDAF2;
+    animation: ${rainbow} 3s linear infinite;
+
+    svg {
+      color: transparent;
+    }
+
+    &:hover {
+      svg {
+        color: #6DDAF2;
+      }
+      width: 50px;
+      background: #fff;
+      transform: translateY(0) scaleY(1);
+    }
   }
 `;
 
 const Blog = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
   const { previous, next } = pageContext;
-  const publicUrl = `https://daliannyvieira.github.io/blog${post.fields.slug}`;
+  const publicUrl = `https://daliannyvieira.github.io${post.fields.slug}`;
 
   const [toggle, setToggle] = useState(true)
 
@@ -138,20 +139,15 @@ const Blog = ({ data, pageContext }) => {
             description={post.frontmatter.description || post.excerpt}
             keywords={post.frontmatter.keywords}
           />
-            <Legend>
-              {post.frontmatter.shortDate} &middot;{' '}
-              {pluralizeReadingTime(post.timeToRead)}
-            </Legend>
-            <h1 style={{ margin: '2rem auto' }}>
+            <Title>
               {post.frontmatter.published ? '' : 'DRAFT: '}
               {post.frontmatter.title}
-            </h1>
-            <div
-              style={{
-                margin: `1rem 0`,
-              }}
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
+            </Title>
+            <small>
+              {post.frontmatter.shortDate} — {' '}
+              {pluralizeReadingTime(post.timeToRead)}
+            </small>
+            <article dangerouslySetInnerHTML={{ __html: post.html }} />
             <ul
               style={{
                 display: `flex`,
@@ -166,7 +162,7 @@ const Blog = ({ data, pageContext }) => {
                 {previous && (
                   <Link
                     style={{ textDecoration: `none` }}
-                    to={`/blog${previous.fields.slug}`}
+                    to={previous.fields.slug}
                     rel="prev"
                   >
                     ← {previous.frontmatter.title}
@@ -177,7 +173,7 @@ const Blog = ({ data, pageContext }) => {
                 {next && (
                   <Link
                     style={{ textDecoration: `none` }}
-                    to={`/blog${next.fields.slug}`}
+                    to={next.fields.slug}
                     rel="next"
                   >
                     {next.frontmatter.title} →
@@ -186,20 +182,19 @@ const Blog = ({ data, pageContext }) => {
               </li>
             </ul>
             <Twitter>
-              <FontAwesomeIcon
-                size={SOCIAL[1].size}
-                icon={SOCIAL[1].icon}
-                title={`Link to my ${SOCIAL[1].kind}`}
-              />
-              {' '}
-              <a
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                href={`https://twitter.com/search?q=${publicUrl}`}
-              >
-                Compartilhe no Twitter
-                
-              </a>
+              <div>
+                <a
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                  href={`https://twitter.com/intent/tweet?text=${publicUrl}`}
+                >
+                  <FontAwesomeIcon
+                    size={SOCIAL[1].size}
+                    icon={SOCIAL[1].icon}
+                    title={`Link to my ${SOCIAL[1].kind}`}
+                  />
+                </a>
+              </div>
             </Twitter>
           </Container>
         )}

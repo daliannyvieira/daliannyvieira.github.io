@@ -1,8 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+
 import Seo from "../components/seo"
-import Posts from "../components/posts";
+import Layout from "../components/layout"
+
+import Posts from "../templates/blog-list";
 
 const PostsPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges.map(post => {

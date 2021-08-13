@@ -63,48 +63,50 @@ const rainbow = keyframes`
   }
 `
 
-const Links = styled.ul`
+const SocialList = styled.ul`
   list-style: none;
   display: flex;
   margin: 1rem 0 2rem;
   padding: 0;
+`;
 
-  li {
-    list-style: none;
-    display: flex;
-    margin-right: 1rem;
-  }
+const SocialItem = styled.li`
+  list-style: none;
+  display: flex;
+  margin-right: 1rem;
+  background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
+  -webkit-background-clip: text;
+  background-clip: text;
 
-  li a {
+  a {
     padding: 0.45rem;
   }
 
-  li {
-    background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    &:nth-child(1) svg {
-      color: #F583BA;
-    }
-    &:nth-child(2) svg {
-      color: #6DDAF2;
-    }
-    &:nth-child(3) svg {
-      color: #92E085;
-    }
-    &:nth-child(4) svg {
-      color: #F5BD69;
-    }
-    &:nth-child(5) svg {
-      color: #F2856D;
-    }
-
-    &:hover {
-      transform: scale(1.25);
-      animation: ${rainbow} 3s linear infinite;
-    }
+  &:nth-child(1) svg {
+    color: #F583BA;
   }
-`;
+
+  &:nth-child(2) svg {
+    color: #6DDAF2;
+  }
+
+  &:nth-child(3) svg {
+    color: #92E085;
+  }
+
+  &:nth-child(4) svg {
+    color: #F5BD69;
+  }
+
+  &:nth-child(5) svg {
+    color: #F2856D;
+  }
+
+  &:hover {
+    transform: scale(1.25);
+    animation: ${rainbow} 3s linear infinite;
+  }
+`
 
 export default function MainBio() {
   return (
@@ -126,9 +128,9 @@ export default function MainBio() {
           Com amor e entusiasmo, tenho feito isso a maior parte da minha carreira através de redes de tecnologia profunda e de suporte a diversidade. 
         </p>
         <footer>
-          <Links>
+          <SocialList>
             {SOCIAL.map(s => (
-              <li key={s.kind}>
+              <SocialItem key={s.kind}>
                 <a href={s.url}>
                   <FontAwesomeIcon
                     size={s.size}
@@ -136,12 +138,9 @@ export default function MainBio() {
                     title={`Link to my ${s.kind}`}
                   />
                 </a>
-              </li>
+              </SocialItem>
             ))}
-          </Links>
-          <small>© {new Date().getFullYear()}, Built with
-        {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a> by @daliannyvieira.</small>
+          </SocialList>
         </footer>
       </Sidebar>
     </Wrap>

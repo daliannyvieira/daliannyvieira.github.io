@@ -1,5 +1,5 @@
 ---
-title: "Não pretendo ser sua heroína"
+title: "Não pretendo ser sua super heroína"
 description: >-
 date:  2021-07-20T03:45:03.995Z
 categories:

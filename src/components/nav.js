@@ -16,7 +16,7 @@ const NavContainer = styled.nav`
 
   @media (min-width: 992px) {
     position: absolute;
-    max-width: 55vw;
+    max-width: 52vw;
   }
 `
 
@@ -49,40 +49,56 @@ const List = styled.ul`
 const Item = styled.li`
   text-align: center;
   width: 4rem;
-  padding: 1rem 0 0.65rem;
+  padding: 1rem 0;
   list-style: none;
-  transition: 0.65s ease-out;
   color: rgb(43, 43, 44);
   cursor: pointer;
   list-style: none;
-  transition: all 0.65s ease-out 0s;
   border-bottom: 5px solid transparent;
+  border-bottom-radius: 4px;
+  position: relative;
 
   @media (min-width: 992px) {
-     width: 10rem;
+    padding: 1rem 0 1rem;
+    width: 10rem;
   }
 
   a {
     background-color: transparent;
     text-decoration: none;
     color: black;
-    transition: all .15s ease-in-out;
   }
 
-  &:nth-child(1):hover {
-    border-bottom-color: #F583BA;
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 0;
+    height: 5px;
+    border-radius: 50px;
+    transition: width 0.25s, background 0.35s;
   }
-  &:nth-child(2):hover {
-    border-bottom-color: #6DDAF2;
+
+  &:hover::after {
+    width: 5rem;
+    content: '';
   }
-  &:nth-child(3):hover {
-    border-bottom-color: #92E085;
+
+  &:nth-child(1):hover::after {
+    background: #F583BA;
   }
-  &:nth-child(4):hover {
-    border-bottom-color: #F5BD69;
+  &:nth-child(2):hover::after {
+    background: #6DDAF2;
   }
-  &:nth-child(5):hover {
-    border-bottom-color: #F2856D;
+  &:nth-child(3):hover::after {
+    background: #92E085;
+  }
+  &:nth-child(4):hover::after {
+    background: #F5BD69;
+  }
+  &:nth-child(5):hover::after {
+    background: #F2856D;
   }
 `
 

@@ -1,28 +1,32 @@
 import React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
 import styled from 'styled-components';
+
+import Seo from "../components/seo"
+import Layout from "../components/layout"
 
 import image03 from "../images/03.jpg"
 import image09 from "../images/09.jpeg"
 import image05 from "../images/05.jpg"
-import image06 from "../images/06.jpg"
 import image07 from "../images/07.jpg"
 import image10 from "../images/me02.jpg"
+
+const Title = styled.h1`
+  margin-bottom: 1rem;
+`
 
 const About = styled.div`
   display: flex;
   flex-direction: column;
-
-  h1 {
-    margin-bottom: 1rem;
-  }
 
   @media (min-width: 992px) {
     img {
       margin: 1rem auto;
       max-width: 70%;
     }
+  }
+
+  a {
+    font-weight: 800;
   }
 `;
 
@@ -49,13 +53,12 @@ export default function AboutPage() {
         ]}
       />
       <About>
-        <h1>Sobre</h1>
+        <Title>Sobre</Title>
         <p>
           Olá, você pode me chamar de Dali. Eu sou uma desenvolvedora brasileira, trabalho com tecnologia desde 2016, e desde então tenho tido experiência em desenvolver produtos de grande impacto.
         </p>
         <p>
-          Eu me interesso em compreender sobre as diversas áreas envolvidas no desenvolvimento de produtos digitais afim de simplificar um mundo que parece cada vez mais complexo.
-          Com amor e entusiasmo, tenho feito isso a maior parte da minha carreira através de redes de tecnologia profunda e de suporte a diversidade. 
+          Esse blog é o meu playground, onde eu escrevo sem nenhuma pretensão, e o mantenho principalmente para me divertir testando tecnologias no meu tempo livre. Todo o código dele, assim como o de outros projetos que eu fiz por conta própria é aberto e você pode <a href="https://github.com/daliannyvieira">acompanhar esse código no Github</a>.
         </p>
         <h2>Tecnologia como um presente</h2>
         <img src={image10} alt="That's me, and I'm smiling"/>
@@ -65,10 +68,8 @@ export default function AboutPage() {
         </p>
         <blockquote>
           <p>“Não é o que o mundo reserva para você, é o que você traz para ele. ”</p>
-
-          — Anne Shirley, on Anne with an E.
+          <small>— Anne Shirley, on Anne with an E.</small>
         </blockquote>
-        <img src={image03} alt="People happy at VaiNaWeb with course certificates"/>
         <img src={image05} alt="People happy at Pyladies Rio" />
         <p>
           Toda a minha trajetória me fez perceber que o conhecimento é a coisa mais empoderadora que podemos compartilhar em sociedade.
@@ -78,11 +79,11 @@ export default function AboutPage() {
         <p>
           Eu realmente gosto de falar sobre o que eu sei, e tenho feito isso boa parte do meu tempo como professora para inspirar e encorajar jovens em territórios de conflito armado e vulnerabilidade social a buscarem conhecimento para que possam provocar mudanças positivas em suas próprias vidas e em suas comunidades.
         </p>
+        <img src={image03} alt="People happy at VaiNaWeb with course certificates" />
         <p>
           Eu também tive a oportunidade de trocar conhecimento em mudas comunidades de código criadas para apoiar minorias na tecnologia, como o PyLadies, Django Girls e InspirAda na Computação.
         </p>
         <img src={image07} alt="People happy at DjangoGirls Niteroi"/>
-        <img src={image06} alt="People happy at Pyladies Rio"/>
       </About>
     </Layout>
   )

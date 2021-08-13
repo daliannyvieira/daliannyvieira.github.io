@@ -1,7 +1,7 @@
 import React from 'react';
+import styled from 'styled-components'
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
-import styled from 'styled-components'
 
 const Wrap = styled.div`
   display: flex;
@@ -181,7 +181,7 @@ const Posts = ({ posts }) => {
           <PostsContainer>
             {newPosts[field].reverse().map(post => (
               <Post>
-                <Link style={{ boxShadow: `none` }} to={`/blog${post.slug}`}>
+                <Link style={{ boxShadow: `none` }} to={post.slug}>
                   <Cover>
                     <Legend>
                       {post.shortDate}
