@@ -89,7 +89,7 @@ const Post = styled.article`
 
   @media (min-width: 992px) {
     margin: 0.45rem;
-    max-width: 14rem;
+    width: 14rem;
   }
 
   &:hover {
@@ -179,7 +179,7 @@ const Posts = ({ posts }) => {
         <Container>
           <h3>{field}</h3>
           <PostsContainer>
-            {newPosts[field].reverse().map(post => (
+            {newPosts[field].map(post => (
               <Post>
                 <Link style={{ boxShadow: `none` }} to={post.slug}>
                   <Cover>

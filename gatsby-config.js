@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Dali Vieira`,
     author: `Dalianny Vieira`,
-    description: `Dalianny Vieira's personal blog`,
-    siteUrl: `https://daliannyvieira.github.io/blog/`,
+    description: `Dalianny Vieira`,
+    siteUrl: `https://daliannyvieira.github.io/`,
     social: {
       github: `daliannyvieira`,
       twitter: `daliannyvieira`,
