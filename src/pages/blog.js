@@ -2,11 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Seo from "../components/seo"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
 import Posts from "../templates/blog-list";
 
-const PostsPage = ({ data }) => {
+const PostsPage = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges.map(post => {
     return {
       ...post.node.frontmatter,
@@ -15,7 +15,7 @@ const PostsPage = ({ data }) => {
   });
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Seo
         title="Blog"
         keywords={[
@@ -35,7 +35,7 @@ const PostsPage = ({ data }) => {
           `leadership`,
         ]}
       />
-      <Posts posts={posts}/>
+      <Posts posts={posts} />
     </Layout>
   )
 }

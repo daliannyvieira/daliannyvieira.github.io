@@ -16,11 +16,11 @@ const Wrap = styled.div`
 `;
 
 const Avatar = styled.div`
+  position: relative;
   width: 275px;
   height: 275px;
   border-radius: 50%;
   overflow: hidden;
-  position: relative;
 
   @media (min-width: 992px) {
     width: 350px;
@@ -35,23 +35,23 @@ const Avatar = styled.div`
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    opacity: 1;
     transition: opacity 500ms ease 0s;
+    opacity: 1;
   }
 `;
 
 const Sidebar = styled.div`
   width: 100%;
   z-index: 1;
+
+  h1 {
+    margin: 2rem 0;
+  }
   
   @media (min-width: 992px) {
     width: 55%;
     padding-right: 2rem;
   }
-`;
-
-const Title = styled.h1`
-  margin: 2rem 0;
 `;
 
 const rainbow = keyframes`
@@ -64,16 +64,16 @@ const rainbow = keyframes`
 `
 
 const SocialList = styled.ul`
-  list-style: none;
   display: flex;
   margin: 1rem 0 2rem;
   padding: 0;
+  list-style: none;
 `;
 
 const SocialItem = styled.li`
-  list-style: none;
   display: flex;
   margin-right: 1rem;
+  list-style: none;
   background-image: -webkit-linear-gradient(92deg, #ff7a60, #ffb8d1);
   -webkit-background-clip: text;
   background-clip: text;
@@ -115,9 +115,9 @@ export default function MainBio() {
         <img src={me} alt="That's a me using glasses and smiling" />
       </Avatar>
       <Sidebar>
-        <Title>
+        <h1>
           Olá, eu sou a Dali!
-        </Title>
+        </h1>
         <p>
           Atualmente sou desenvolvedora de tecnologia senior, na 1STi.
         </p>

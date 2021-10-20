@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components';
 
 import Seo from "../components/seo"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
 import image03 from "../images/03.jpg"
 import image09 from "../images/09.jpeg"

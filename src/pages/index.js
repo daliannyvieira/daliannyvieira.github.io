@@ -2,8 +2,8 @@ import React, {useState} from "react"
 import styled from 'styled-components'
 
 import Seo from "../components/seo"
-import Layout from "../components/layout"
-import Bio from "../components/bio";
+import Layout from "../components/Layout"
+import Bio from "../components/Bio";
 
 const Shape = styled.div.attrs(props => ({
   style: {
@@ -22,13 +22,13 @@ const Shape = styled.div.attrs(props => ({
 `;
 
 const Section = styled.section`
-  min-height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 `;
 
 const IndexPage = () => {

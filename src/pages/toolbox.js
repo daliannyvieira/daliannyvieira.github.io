@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components';
 
 import Seo from "../components/seo"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
 const Title = styled.h1`
   margin-bottom: 1rem;

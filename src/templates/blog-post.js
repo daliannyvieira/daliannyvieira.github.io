@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { Spring, animated } from 'react-spring'
 
 import Seo from '../components/seo';
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -12,18 +12,11 @@ import SOCIAL from '../constants/social';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
 
 const Container = styled(animated.div)`
-  padding: 2rem 1rem 2rem;
   width: 90vw;
-  border-radius: .5rem;
-  position: relative;
-  border-color: #ffb8d1;
-  border-style: solid;
-  border-width: 1px;
-  background: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
-  border-color: #f5f5f5;
-  border-style: solid;
-  border-width: 1px;
+
+  h1 {
+    color: var(--color-primary);
+  }
 
   strong {
     font-weight 800;
@@ -44,14 +37,10 @@ const Container = styled(animated.div)`
     }
   }
 
-  small a {
-    color: #6DDAF2;
+  small a, svg {
+    color: var(--color-primary);
   }
-
-  svg {
-    color: #6DDAF2;
-  }
-  `;
+`;
 
 const Title = styled.h1`
   margin-bottom: 1rem;
@@ -59,22 +48,19 @@ const Title = styled.h1`
 
 const rainbow = keyframes`
   50% {
-    transform: translateY(-20px) scaleY(0.75);
+    transform: translateY(20px) scaleY(0.75);
   }
 `
 
 const Twitter = styled.div`
   position: absolute;
-  bottom: 5%;
-  right: 100%;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-  border-color: #6DDAF2;
+  border-color: var(--color-primary);
   border-style: solid;
   border-width: 1px;
   padding: 0.75rem;
   cursor: pointer;
   transition: all 0.5s ease;
-  background: #6DDAF2;
+  background: var(--color-primary);
 
   div {
     display: flex;
@@ -86,7 +72,7 @@ const Twitter = styled.div`
   }
 
   @media (min-width: 992px) {
-    background: #6DDAF2;
+    background: var(--color-primary);
     animation: ${rainbow} 3s linear infinite;
 
     svg {
@@ -95,7 +81,7 @@ const Twitter = styled.div`
 
     &:hover {
       svg {
-        color: #6DDAF2;
+        color: var(--color-primary);
       }
       width: 50px;
       background: #fff;
@@ -104,7 +90,7 @@ const Twitter = styled.div`
   }
 `;
 
-const Blog = ({ data, pageContext }) => {
+const Blog = ({ data, pageContext, location }) => {
   const { markdownRemark: post } = data;
   const { previous, next } = pageContext;
   const publicUrl = `https://daliannyvieira.github.io${post.fields.slug}`;
@@ -120,7 +106,7 @@ const Blog = ({ data, pageContext }) => {
   }, []);
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Spring
         native
         to={{
@@ -199,7 +185,7 @@ const Blog = ({ data, pageContext }) => {
           </Container>
         )}
       </Spring>
-    </Layout >
+    </Layout>
   );
 }
 

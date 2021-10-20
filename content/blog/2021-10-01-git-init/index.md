@@ -1,7 +1,7 @@
 ---
 title: "Git init"
 description: >-
-date:  2021-09-10T03:45:03.995Z
+date:  2021-10-10T03:45:03.995Z
 categories:
   - git
 keywords:
@@ -15,7 +15,7 @@ coverAuthor: deconhecido
 Git é a ferramenta mais famosa do planeta para versionamento de código. É ela quem nos ajuda a lidar com as modificações de arquivos de uma maneira simples e nos auxilia a trabalhar colaborativamente em times distribuídos em diferentes lugares do mundo.
 
 ## Entendendo o fluxo
-![imagem](./02.png)
+![imagem](./01.png)
 
 A ideia é dividir o nosso trabalho em pequenos pacotes de mudanças para guardar no histórico.
 
@@ -26,6 +26,8 @@ A ideia é dividir o nosso trabalho em pequenos pacotes de mudanças para guarda
 - **Histórico do Git**: O pacote finalmente vai ser listado como uma unidade no histórico, chamamos essa unidade de commit.
 
 ## Como fazer bons commits
+
+![imagem](./02.png)
 
 ### Um commit representa uma mudança
 
