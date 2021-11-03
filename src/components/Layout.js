@@ -16,6 +16,8 @@ const Main = styled.main`
 `;
 
 const Wrap = styled(animated.section)`
+  width: 100vw;
+
   @media (min-width: 992px) {
     max-width: 85vw;
   }

@@ -91,7 +91,7 @@ const PostCover = styled.header`
     height: 2rem;
     border-radius: 6px;
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(249,249,246,0) 100%);
-    z-index: 10;
+    z-index: 1;
     opacity: 0.85;
   }
 `;
@@ -102,7 +102,7 @@ const Legend = styled.small`
   right: 0;
   margin: 0.5rem;
   text-shadow: 1px 1px 2px black;
-  z-index: 10;
+  z-index: 1;
   color: var(--color-secondary);
 `;
 

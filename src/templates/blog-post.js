@@ -12,33 +12,13 @@ import SOCIAL from '../constants/social';
 import pluralizeReadingTime from "../constants/pluralize-reading-time";
 
 const Container = styled(animated.div)`
-  width: 90vw;
-
-  h1 {
-    color: var(--color-primary);
-  }
-
-  strong {
-    font-weight 800;
+  width: 100%;
+  p {
+    margin: 1.45rem 0 1rem;
   }
 
   @media (min-width: 992px) {
-    padding: 4rem 2.45rem 4rem;
-    max-width: 55vw;
-
-    p, ul {
-      font-size: 1.15rem;
-      line-height: 1.95rem;
-    }
-
-    blockquote p {
-      font-size: 1.75rem;
-      line-height: 2.25rem;
-    }
-  }
-
-  small a, svg {
-    color: var(--color-primary);
+    width: 45vw;
   }
 `;
 

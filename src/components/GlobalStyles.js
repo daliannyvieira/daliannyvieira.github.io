@@ -1,18 +1,29 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  *, *:before, *:after {
-    box-sizing: border-box;
-    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
   }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     background: var(--color-background);
     color: var(--color-text);
+    font-size: 16px;
   }
-  a {
-    color: var(--color-secondary);
+
+  @media (min-width: 2560px) {
+    html {
+      font-size: 30px;
+    }
   }
+
   body {
     margin: 0;
     padding: 0;
@@ -29,32 +40,26 @@ const GlobalStyles = createGlobalStyle`
     transition: background ease 0.2s;
     background: var(--color-background);
     color: var(--color-text);
-  }
-
-  html {
-    font-size: 16px;
-  }
-
-  @media (min-width: 2560px) {
-    html {
-      font-size: 30px;
-    }
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Source Serif Pro', serif;
-    color: var(--color-title)
+    color: var(--color-title);
+    margin: 4rem 0 1rem;
   }
 
   h1 {
     font-size: 2rem;
-    line-height: 2.25rem;
+    line-height: 2.5rem;
+    color: var(--color-primary);
   }
 
   @media (min-width: 992px) {
     h1 {
       font-size: 3.625rem;
-      line-height: 3.48rem;
+      line-height: 3.88rem;
     }
   }
 
@@ -69,27 +74,33 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h4 {
-    font-size: 1rem;
     font-size: 1.25rem;
+    line-height: 2rem;
   }
 
   p {
-    font-size: 1rem;
-    line-height: 1.8rem;
+    font-size: 1.15rem;
+    line-height: 2rem;
+    margin: 1rem 0;
   }
 
-  img {
-    max-width: 100%;
+  ol, ul {
+    font-size: 1.15rem;
+    line-height: 2rem;
   }
 
-  ul {
-    font-size: 1rem;
-    line-height: 1.8em;
+  ::marker {
+    color: var(--color-primary);
   }
 
   ::selection {
     background: #F583BA;
     color: #fff;
+  }
+
+  a {
+    color: var(--color-secondary);
+    cursor: pointer;
   }
 
   blockquote {
@@ -104,34 +115,45 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.25rem;
     line-height: 1.65rem;
     display: inline-block;
-    margin: 0.8em auto;
   }
 
   blockquote::before {
     content: "";
     display: block;
     width: 40%;
-    margin: 2rem auto 1rem;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    margin: 4rem auto 1rem;
+    border-top: 2px solid var(--color-secondary);
   }
 
   blockquote::after {
     content: "";
     display: block;
     width: 40%;
-    margin: 1rem auto 2rem;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    margin: 1rem auto 4rem;
+    border-top: 2px solid var(--color-secondary);
   }
 
   @media (min-width: 992px) {
     blockquote {
-      max-width: 70%;
+      max-width: 75%;
     }
 
     blockquote p {
       font-size: 1.75rem;
       line-height: 2.25rem;
     }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  textarea {
+    white-space: revert;
   }
 `;
 

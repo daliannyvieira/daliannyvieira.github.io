@@ -49,7 +49,7 @@ const Sidebar = styled.div`
   }
   
   @media (min-width: 992px) {
-    width: 55%;
+    width: 60%;
     padding-right: 2rem;
   }
 `;

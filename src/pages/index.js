@@ -5,6 +5,8 @@ import Seo from "../components/seo"
 import Layout from "../components/Layout"
 import Bio from "../components/Bio";
 
+import { getSticker } from "../utils/stickers"
+
 const Shape = styled.div.attrs(props => ({
   style: {
       background: props.color ? props.color : '#ffd670',
@@ -32,56 +34,45 @@ const Section = styled.section`
 `;
 
 const IndexPage = () => {
-  let heightViewPort;
-  let widthViewPort;
-
-  const [coord, setCoord] = useState({x: 0, y: 0})
+  const [cursor, setCursor] = useState({x: 0, y: 0})
   const [shapes, setShapes] = useState([])
 
+  let height;
+  let width;
+
   if (typeof document !== `undefined`) {
-    heightViewPort = document.documentElement.clientHeight
-    widthViewPort = document.documentElement.clientWidth
+    height = document.documentElement.clientHeight
+    width = document.documentElement.clientWidth
   }
 
-  const wrapY = (y) =>  y > 75 && (y + 75) < heightViewPort;
-  const wrapX = (x) => x > 75 && (x + 75) < widthViewPort;
+  const wrapY = (y) => y > 75 && (y + 75) < height;
+  const wrapX = (x) => x > 75 && (x + 75) < width;
 
-  const handleCursor = (e) => {
-    if (wrapY(e.pageY) && wrapX(e.pageX)) {
-      const coord = {
+  const getCursor = (e) => {
+    if (wrapY(e.pageY, height) && wrapX(e.pageX, width)) {
+      const cursor = {
         x: e.pageX,
         y: e.pageY,
       }
-      setCoord(coord)
+      setCursor(cursor)
     } else {
-      setCoord({x: 0, y: 0})
+      setCursor({x: 0, y: 0})
     }
   }
 
   const handleClick = (e) => {
     if (wrapY(e.pageY) && wrapX(e.pageX)) {
-      const colors = ['#70d5fc', '#f16da5', '#f7966f', '#ffd670', '#e6f06e']
-      const sizes = [3, 4.5, 6, 7.5, 9]
-
-      const random = Math.floor(Math.random() * colors.length)
-
-      const shape = {
-        x: e.pageX,
-        y: e.pageY,
-        size: sizes[random],
-        color: colors[random]
-      }
-
+      const shape = getSticker(e);
       setShapes([...shapes, shape])
     }
   }
 
   return (
-    <Section onClick={handleClick} onMouseMove={handleCursor}>
-      {coord.x !== 0 && (
+    <Section onClick={handleClick} onMouseMove={getCursor}>
+      {cursor.x !== 0 && (
         <Shape
-          x={`calc(${coord.x}px - 1.5rem)`}
-          y={`calc(${coord.y}px - 1.5rem)`}
+          x={`calc(${cursor.x}px - 1.5rem)`}
+          y={`calc(${cursor.y}px - 1.5rem)`}
         />
       )}
       {shapes && shapes.map((shape, index) => {

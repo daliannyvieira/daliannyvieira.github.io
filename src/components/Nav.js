@@ -7,23 +7,20 @@ import { ThemeContext } from './ThemeContext';
 import { chooseColor } from '../utils/chooseColor'
 import logo from "../images/cat.svg"
 
-const Section = styled.nav`
+const Nav = styled.nav`
   position: fixed;
   top: 0;
+  left: 0;
   margin: 0 auto;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 11;
+  z-index: 2;
 
   @media (min-width: 992px) {
     position: absolute;
-    max-width: 85vw;
-  }
-
-  @media (min-width: 1200px) {
-    max-width: 55vw;
+    top: 0;
   }
 `
 
@@ -36,8 +33,13 @@ const Wrap = styled.div`
   justify-content: space-between;
 
   @media (min-width: 992px) {
+    max-width: 85vw;
     box-shadow: none;
     background: transparent;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 55vw;
   }
 `
 
@@ -128,11 +130,11 @@ const Links = [
   }
 ]
   
-const Nav = ({location}) => {
+const NavComp = ({location}) => {
   const { colorMode } = useContext(ThemeContext);
   
   return (
-    <Section>
+    <Nav>
       <Wrap>
         <Logo>
           <Link to='/' activeStyle={{ color: '#F583BA', fontWeight: 'bolder' }}>
@@ -173,8 +175,8 @@ const Nav = ({location}) => {
         </List>
         <ThemeToggle />
       </Wrap>
-    </Section>
+    </Nav>
   )
 }
 
-export default Nav
+export default NavComp
